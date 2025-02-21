@@ -1,37 +1,11 @@
 # Conversational-AI
 Repo for Conversation AI Module 
 
-## Initial roles (guess prior to reading):
-1. NLU Specialist (Person 1) - **Ruben**  
-* Responsibilities:  
-  * Build and train the NLU system using Rasa.
-  * Define and refine intents, entities, and training data for PDT-related queries (e.g., "How do I extend my deadline?" or "I need help with my dissertation").
-  * Integrate potential transformer models for more complex NLU tasks if needed.
-* Deliverables:
-  * Trained NLU model.
-  * Documented intent and entity design.
-2. Dialogue Manager and Flow Designer (Person 2) - **Ansh**
-* Responsibilities:
-  * Design and implement the dialogue flows using Rasa’s Dialogue Manager.
-  * Ensure smooth conversation handling, including context retention, multi-turn dialogues, and appropriate fallback mechanisms.
-  * Collaborate with NLU and NLG specialists to ensure end-to-end integration.
-* Deliverables:
-  * Functional dialogue flows.
-  * Conversation management logic and fallback strategies.
-3. NLG and Information Retrieval Specialist (Person 3) - **Andy**
-* Responsibilities:
-  * Develop the Natural Language Generation system (using Rasa NLG or transformer models).
-  * Implement the information retrieval system to pull data from Napier’s website, FAQs, and other relevant resources.
-  * Ensure dynamic, context-aware responses.
-* Deliverables:
-  * NLG module capable of generating accurate and contextually appropriate responses.
-  * Information retrieval mechanism.
-4. Ethics, Evaluation, and Integration Specialist (Person 4) - **Jordan**  
-* Responsibilities:
-  * Implement data privacy and ethics measures (e.g., anonymizing user data, ensuring GDPR compliance).
-  * Design and conduct evaluation tests (e.g., user surveys, performance metrics) to assess system effectiveness.
-  * Handle integration of all components and overall project management (timelines, deadlines, etc.).
-* Deliverables:
-  * Ethical guidelines and privacy measures.
-  * Evaluation report on system performance.
-  * Fully integrated system and final project submission.
+## Initial roles (Improved - but can still be refined):
+|Name|Role|Responsibilities|Implementation Tasks|
+|:--:|:--:|:--:|:--:|
+|**Jack**|Project Coordinator & System Integrator|	- Oversees project progress, manages documentation, and ensures deadlines are met. - Compiles all sections into a coherent research plan and final presentation. - Ensures all components work together as a functional system.|- Implements system integration & pipeline management, ensuring individual models (NLU, retrieval, ranking, evaluation) communicate properly. - Tests end-to-end system functionality and resolves integration issues.|
+|**Ruben**|NLU & Query Understanding Specialist|- Researches how to determine when a query needs clarification (ambiguity detection). - Investigates Rasa/BERT models for detecting unclear queries. - Determines when to trigger a clarifying question.|- Implements an intent classifier (BERT/Rasa) to detect ambiguous queries. - Trains and tests a model to classify queries as clear or ambiguous. - Provides query classification outputs to the Clarifying Question Specialist.|
+|**Ansh**|Clarifying Question Retrieval/Generation Specialist|- Researches methods for retrieving or generating relevant clarifying questions. - Investigates neural ranking, question retrieval, and NLG models.|- Implements a retrieval-based (BERT/Splade) or generation-based (GPT/BART/T5) model to produce clarifying questions. - Retrieves questions from a predefined dataset or generates new ones based on query context. - Outputs candidate clarifying questions to the Ranking Specialist.|
+|**Andy**|Ranking & Selection Specialist|	- Works on how to ranking clarifying questions to ensure the most relevant one is chosen. - Investigates neural ranking models (Splade/BERT-based ranking).|- Implements a ranking model (Splade/BERT-based ranking) to score and rank clarifying questions. - Ensures that the top-ranked question is chosen for the user. - Outputs the best-ranked clarifying question to the System Integrator for final processing.|
+|**Jordan**|Evaluation, Metrics & Data Specialist|	- Researches system effectiveness and validation methods. - Looks into standard evaluation metrics from Information Retrieval (Precision, MRR, Recall, etc.). - Designs testing methodology. – Collects and prepares the question dataset for retrieval/generation.|- Implements evaluation metrics (Precision, MRR, Recall). - Develops a synthetic evaluation dataset for testing performance. - Runs automated retrieval and ranking evaluations. – Preparation of question dataset for model training/testing.- Builds a simple API, script, or framework to connect components. |
