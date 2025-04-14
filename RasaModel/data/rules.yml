@@ -1,0 +1,992 @@
+rules:
+- rule: Respond to obama family tree
+  steps:
+  - intent: obama_family_tree
+  - action: utter_clarify_obama_family_tree
+  - action: action_route_to_sbert
+- rule: Respond to cheap internet
+  steps:
+  - intent: cheap_internet
+  - action: utter_clarify_cheap_internet
+  - action: action_route_to_sbert
+- rule: Respond to ritz carlton lake las vegas
+  steps:
+  - intent: ritz_carlton_lake_las_vegas
+  - action: utter_clarify_ritz_carlton_lake_las_vegas
+  - action: action_route_to_sbert
+- rule: Respond to fickle creek farm
+  steps:
+  - intent: fickle_creek_farm
+  - action: utter_clarify_fickle_creek_farm
+  - action: action_route_to_sbert
+- rule: Respond to madam cj walker
+  steps:
+  - intent: madam_cj_walker
+  - action: utter_clarify_madam_cj_walker
+  - action: action_route_to_sbert
+- rule: Respond to indiana child support
+  steps:
+  - intent: indiana_child_support
+  - action: utter_clarify_indiana_child_support
+  - action: action_route_to_sbert
+- rule: Respond to sonoma county medical services
+  steps:
+  - intent: sonoma_county_medical_services
+  - action: utter_clarify_sonoma_county_medical_services
+  - action: action_route_to_sbert
+- rule: Respond to universal animal cuts reviews
+  steps:
+  - intent: universal_animal_cuts_reviews
+  - action: utter_clarify_universal_animal_cuts_reviews
+  - action: action_route_to_sbert
+- rule: Respond to cass county missouri
+  steps:
+  - intent: cass_county_missouri
+  - action: utter_clarify_cass_county_missouri
+  - action: action_route_to_sbert
+- rule: Respond to ralph owen brewster
+  steps:
+  - intent: ralph_owen_brewster
+  - action: utter_clarify_ralph_owen_brewster
+  - action: action_route_to_sbert
+- rule: Respond to mayo clinic jacksonville fl
+  steps:
+  - intent: mayo_clinic_jacksonville_fl
+  - action: utter_clarify_mayo_clinic_jacksonville_fl
+  - action: action_route_to_sbert
+- rule: Respond to gmat prep classes
+  steps:
+  - intent: gmat_prep_classes
+  - action: utter_clarify_gmat_prep_classes
+  - action: action_route_to_sbert
+- rule: Respond to map of brazil
+  steps:
+  - intent: map_of_brazil
+  - action: utter_clarify_map_of_brazil
+  - action: action_route_to_sbert
+- rule: Respond to lymphoma in dogs
+  steps:
+  - intent: lymphoma_in_dogs
+  - action: utter_clarify_lymphoma_in_dogs
+  - action: action_route_to_sbert
+- rule: Respond to kenmore gas water heater
+  steps:
+  - intent: kenmore_gas_water_heater
+  - action: utter_clarify_kenmore_gas_water_heater
+  - action: action_route_to_sbert
+- rule: Respond to hp mini 2140
+  steps:
+  - intent: hp_mini_2140
+  - action: utter_clarify_hp_mini_2140
+  - action: action_route_to_sbert
+- rule: Respond to adobe indian houses
+  steps:
+  - intent: adobe_indian_houses
+  - action: utter_clarify_adobe_indian_houses
+  - action: action_route_to_sbert
+- rule: Respond to pacific northwest laboratory
+  steps:
+  - intent: pacific_northwest_laboratory
+  - action: utter_clarify_pacific_northwest_laboratory
+  - action: action_route_to_sbert
+- rule: Respond to california franchise tax board
+  steps:
+  - intent: california_franchise_tax_board
+  - action: utter_clarify_california_franchise_tax_board
+  - action: action_route_to_sbert
+- rule: Respond to dangers of asbestos
+  steps:
+  - intent: dangers_of_asbestos
+  - action: utter_clarify_dangers_of_asbestos
+  - action: action_route_to_sbert
+- rule: Respond to poem in your pocket day
+  steps:
+  - intent: poem_in_your_pocket_day
+  - action: utter_clarify_poem_in_your_pocket_day
+  - action: action_route_to_sbert
+- rule: Respond to interview thank you
+  steps:
+  - intent: interview_thank_you
+  - action: utter_clarify_interview_thank_you
+  - action: action_route_to_sbert
+- rule: Respond to djs
+  steps:
+  - intent: djs
+  - action: utter_clarify_djs
+  - action: action_route_to_sbert
+- rule: Respond to tv on computer
+  steps:
+  - intent: tv_on_computer
+  - action: utter_clarify_tv_on_computer
+  - action: action_route_to_sbert
+- rule: Respond to sit and reach test
+  steps:
+  - intent: sit_and_reach_test
+  - action: utter_clarify_sit_and_reach_test
+  - action: action_route_to_sbert
+- rule: Respond to culpeper national cemetery
+  steps:
+  - intent: culpeper_national_cemetery
+  - action: utter_clarify_culpeper_national_cemetery
+  - action: action_route_to_sbert
+- rule: Respond to von willebrand disease
+  steps:
+  - intent: von_willebrand_disease
+  - action: utter_clarify_von_willebrand_disease
+  - action: action_route_to_sbert
+- rule: Respond to bowflex power pro
+  steps:
+  - intent: bowflex_power_pro
+  - action: utter_clarify_bowflex_power_pro
+  - action: action_route_to_sbert
+- rule: Respond to butter and margarine
+  steps:
+  - intent: butter_and_margarine
+  - action: utter_clarify_butter_and_margarine
+  - action: action_route_to_sbert
+- rule: Respond to us capitol map
+  steps:
+  - intent: us_capitol_map
+  - action: utter_clarify_us_capitol_map
+  - action: action_route_to_sbert
+- rule: Respond to dutchess county tourism
+  steps:
+  - intent: dutchess_county_tourism
+  - action: utter_clarify_dutchess_county_tourism
+  - action: action_route_to_sbert
+- rule: Respond to atypical squamous cells
+  steps:
+  - intent: atypical_squamous_cells
+  - action: utter_clarify_atypical_squamous_cells
+  - action: action_route_to_sbert
+- rule: Respond to iowa food stamp program
+  steps:
+  - intent: iowa_food_stamp_program
+  - action: utter_clarify_iowa_food_stamp_program
+  - action: action_route_to_sbert
+- rule: Respond to map
+  steps:
+  - intent: map
+  - action: utter_clarify_map
+  - action: action_route_to_sbert
+- rule: Respond to fact on uranus
+  steps:
+  - intent: fact_on_uranus
+  - action: utter_clarify_fact_on_uranus
+  - action: action_route_to_sbert
+- rule: Respond to equal opportunity employer
+  steps:
+  - intent: equal_opportunity_employer
+  - action: utter_clarify_equal_opportunity_employer
+  - action: action_route_to_sbert
+- rule: Respond to mothers day songs
+  steps:
+  - intent: mothers_day_songs
+  - action: utter_clarify_mothers_day_songs
+  - action: action_route_to_sbert
+- rule: Respond to all men are created equal
+  steps:
+  - intent: all_men_are_created_equal
+  - action: utter_clarify_all_men_are_created_equal
+  - action: action_route_to_sbert
+- rule: Respond to electronic skeet shoot
+  steps:
+  - intent: electronic_skeet_shoot
+  - action: utter_clarify_electronic_skeet_shoot
+  - action: action_route_to_sbert
+- rule: Respond to source of the nile
+  steps:
+  - intent: source_of_the_nile
+  - action: utter_clarify_source_of_the_nile
+  - action: action_route_to_sbert
+- rule: Respond to american military university
+  steps:
+  - intent: american_military_university
+  - action: utter_clarify_american_military_university
+  - action: action_route_to_sbert
+- rule: Respond to rock and gem shows
+  steps:
+  - intent: rock_and_gem_shows
+  - action: utter_clarify_rock_and_gem_shows
+  - action: action_route_to_sbert
+- rule: Respond to jax chemical company
+  steps:
+  - intent: jax_chemical_company
+  - action: utter_clarify_jax_chemical_company
+  - action: action_route_to_sbert
+- rule: Respond to rocky mountain news
+  steps:
+  - intent: rocky_mountain_news
+  - action: utter_clarify_rocky_mountain_news
+  - action: action_route_to_sbert
+- rule: Respond to dinosaurs
+  steps:
+  - intent: dinosaurs
+  - action: utter_clarify_dinosaurs
+  - action: action_route_to_sbert
+- rule: Respond to east ridge high school
+  steps:
+  - intent: east_ridge_high_school
+  - action: utter_clarify_east_ridge_high_school
+  - action: action_route_to_sbert
+- rule: Respond to va dmv registration
+  steps:
+  - intent: va_dmv_registration
+  - action: utter_clarify_va_dmv_registration
+  - action: action_route_to_sbert
+- rule: Respond to illinois state tax
+  steps:
+  - intent: illinois_state_tax
+  - action: utter_clarify_illinois_state_tax
+  - action: action_route_to_sbert
+- rule: Respond to arkadelphia health club
+  steps:
+  - intent: arkadelphia_health_club
+  - action: utter_clarify_arkadelphia_health_club
+  - action: action_route_to_sbert
+- rule: Respond to trombone for sale
+  steps:
+  - intent: trombone_for_sale
+  - action: utter_clarify_trombone_for_sale
+  - action: action_route_to_sbert
+- rule: Respond to vines for shade
+  steps:
+  - intent: vines_for_shade
+  - action: utter_clarify_vines_for_shade
+  - action: action_route_to_sbert
+- rule: Respond to sherwood regional library
+  steps:
+  - intent: sherwood_regional_library
+  - action: utter_clarify_sherwood_regional_library
+  - action: action_route_to_sbert
+- rule: Respond to tangible personal property tax
+  steps:
+  - intent: tangible_personal_property_tax
+  - action: utter_clarify_tangible_personal_property_tax
+  - action: action_route_to_sbert
+- rule: Respond to martha stewart and imclone
+  steps:
+  - intent: martha_stewart_and_imclone
+  - action: utter_clarify_martha_stewart_and_imclone
+  - action: action_route_to_sbert
+- rule: Respond to uplift at yellowstone national park
+  steps:
+  - intent: uplift_at_yellowstone_national_park
+  - action: utter_clarify_uplift_at_yellowstone_national_park
+  - action: action_route_to_sbert
+- rule: Respond to espn sports
+  steps:
+  - intent: espn_sports
+  - action: utter_clarify_espn_sports
+  - action: action_route_to_sbert
+- rule: Respond to tn highway patrol
+  steps:
+  - intent: tn_highway_patrol
+  - action: utter_clarify_tn_highway_patrol
+  - action: action_route_to_sbert
+- rule: Respond to 403b
+  steps:
+  - intent: 403b
+  - action: utter_clarify_403b
+  - action: action_route_to_sbert
+- rule: Respond to angular cheilitis
+  steps:
+  - intent: angular_cheilitis
+  - action: utter_clarify_angular_cheilitis
+  - action: action_route_to_sbert
+- rule: Respond to pocono
+  steps:
+  - intent: pocono
+  - action: utter_clarify_pocono
+  - action: action_route_to_sbert
+- rule: Respond to figs
+  steps:
+  - intent: figs
+  - action: utter_clarify_figs
+  - action: action_route_to_sbert
+- rule: Respond to last supper painting
+  steps:
+  - intent: last_supper_painting
+  - action: utter_clarify_last_supper_painting
+  - action: action_route_to_sbert
+- rule: Respond to university of phoenix
+  steps:
+  - intent: university_of_phoenix
+  - action: utter_clarify_university_of_phoenix
+  - action: action_route_to_sbert
+- rule: Respond to the beatles rock band
+  steps:
+  - intent: the_beatles_rock_band
+  - action: utter_clarify_the_beatles_rock_band
+  - action: action_route_to_sbert
+- rule: Respond to septic system design
+  steps:
+  - intent: septic_system_design
+  - action: utter_clarify_septic_system_design
+  - action: action_route_to_sbert
+- rule: Respond to porterville
+  steps:
+  - intent: porterville
+  - action: utter_clarify_porterville
+  - action: action_route_to_sbert
+- rule: Respond to arizona game and fish
+  steps:
+  - intent: arizona_game_and_fish
+  - action: utter_clarify_arizona_game_and_fish
+  - action: action_route_to_sbert
+- rule: Respond to grilling
+  steps:
+  - intent: grilling
+  - action: utter_clarify_grilling
+  - action: action_route_to_sbert
+- rule: Respond to furniture for small spaces
+  steps:
+  - intent: furniture_for_small_spaces
+  - action: utter_clarify_furniture_for_small_spaces
+  - action: action_route_to_sbert
+- rule: Respond to dnr
+  steps:
+  - intent: dnr
+  - action: utter_clarify_dnr
+  - action: action_route_to_sbert
+- rule: Respond to arkansas
+  steps:
+  - intent: arkansas
+  - action: utter_clarify_arkansas
+  - action: action_route_to_sbert
+- rule: Respond to hobby stores
+  steps:
+  - intent: hobby_stores
+  - action: utter_clarify_hobby_stores
+  - action: action_route_to_sbert
+- rule: Respond to blue throated hummingbird
+  steps:
+  - intent: blue_throated_hummingbird
+  - action: utter_clarify_blue_throated_hummingbird
+  - action: action_route_to_sbert
+- rule: Respond to computer programming
+  steps:
+  - intent: computer_programming
+  - action: utter_clarify_computer_programming
+  - action: action_route_to_sbert
+- rule: Respond to barbados
+  steps:
+  - intent: barbados
+  - action: utter_clarify_barbados
+  - action: action_route_to_sbert
+- rule: Respond to lipoma
+  steps:
+  - intent: lipoma
+  - action: utter_clarify_lipoma
+  - action: action_route_to_sbert
+- rule: Respond to battles in the civil war
+  steps:
+  - intent: battles_in_the_civil_war
+  - action: utter_clarify_battles_in_the_civil_war
+  - action: action_route_to_sbert
+- rule: Respond to poker tournaments
+  steps:
+  - intent: poker_tournaments
+  - action: utter_clarify_poker_tournaments
+  - action: action_route_to_sbert
+- rule: Respond to scooters
+  steps:
+  - intent: scooters
+  - action: utter_clarify_scooters
+  - action: action_route_to_sbert
+- rule: Respond to ron howard
+  steps:
+  - intent: ron_howard
+  - action: utter_clarify_ron_howard
+  - action: action_route_to_sbert
+- rule: Respond to becoming a paralegal
+  steps:
+  - intent: becoming_a_paralegal
+  - action: utter_clarify_becoming_a_paralegal
+  - action: action_route_to_sbert
+- rule: Respond to hip fractures
+  steps:
+  - intent: hip_fractures
+  - action: utter_clarify_hip_fractures
+  - action: action_route_to_sbert
+- rule: Respond to rock art
+  steps:
+  - intent: rock_art
+  - action: utter_clarify_rock_art
+  - action: action_route_to_sbert
+- rule: Respond to signs of a heartattack
+  steps:
+  - intent: signs_of_a_heartattack
+  - action: utter_clarify_signs_of_a_heartattack
+  - action: action_route_to_sbert
+- rule: Respond to weather strip
+  steps:
+  - intent: weather_strip
+  - action: utter_clarify_weather_strip
+  - action: action_route_to_sbert
+- rule: Respond to best long term care insurance
+  steps:
+  - intent: best_long_term_care_insurance
+  - action: utter_clarify_best_long_term_care_insurance
+  - action: action_route_to_sbert
+- rule: Respond to pork tenderloin
+  steps:
+  - intent: pork_tenderloin
+  - action: utter_clarify_pork_tenderloin
+  - action: action_route_to_sbert
+- rule: Respond to black history
+  steps:
+  - intent: black_history
+  - action: utter_clarify_black_history
+  - action: action_route_to_sbert
+- rule: Respond to wedding budget calculator
+  steps:
+  - intent: wedding_budget_calculator
+  - action: utter_clarify_wedding_budget_calculator
+  - action: action_route_to_sbert
+- rule: Respond to newyork hotels
+  steps:
+  - intent: newyork_hotels
+  - action: utter_clarify_newyork_hotels
+  - action: action_route_to_sbert
+- rule: Respond to old coins
+  steps:
+  - intent: old_coins
+  - action: utter_clarify_old_coins
+  - action: action_route_to_sbert
+- rule: Respond to quit smoking
+  steps:
+  - intent: quit_smoking
+  - action: utter_clarify_quit_smoking
+  - action: action_route_to_sbert
+- rule: Respond to kansas city mo
+  steps:
+  - intent: kansas_city_mo
+  - action: utter_clarify_kansas_city_mo
+  - action: action_route_to_sbert
+- rule: Respond to civil right movement
+  steps:
+  - intent: civil_right_movement
+  - action: utter_clarify_civil_right_movement
+  - action: action_route_to_sbert
+- rule: Respond to credit report
+  steps:
+  - intent: credit_report
+  - action: utter_clarify_credit_report
+  - action: action_route_to_sbert
+- rule: Respond to unc
+  steps:
+  - intent: unc
+  - action: utter_clarify_unc
+  - action: action_route_to_sbert
+- rule: Respond to vanuatu
+  steps:
+  - intent: vanuatu
+  - action: utter_clarify_vanuatu
+  - action: action_route_to_sbert
+- rule: Respond to internet phone service
+  steps:
+  - intent: internet_phone_service
+  - action: utter_clarify_internet_phone_service
+  - action: action_route_to_sbert
+- rule: Respond to gs pay rate
+  steps:
+  - intent: gs_pay_rate
+  - action: utter_clarify_gs_pay_rate
+  - action: action_route_to_sbert
+- rule: Respond to the current
+  steps:
+  - intent: the_current
+  - action: utter_clarify_the_current
+  - action: action_route_to_sbert
+- rule: Respond to brooks brothers clearance
+  steps:
+  - intent: brooks_brothers_clearance
+  - action: utter_clarify_brooks_brothers_clearance
+  - action: action_route_to_sbert
+- rule: Respond to churchill downs
+  steps:
+  - intent: churchill_downs
+  - action: utter_clarify_churchill_downs
+  - action: action_route_to_sbert
+- rule: Respond to condos in florida
+  steps:
+  - intent: condos_in_florida
+  - action: utter_clarify_condos_in_florida
+  - action: action_route_to_sbert
+- rule: Respond to dog clean up bags
+  steps:
+  - intent: dog_clean_up_bags
+  - action: utter_clarify_dog_clean_up_bags
+  - action: action_route_to_sbert
+- rule: Respond to designer dog breeds
+  steps:
+  - intent: designer_dog_breeds
+  - action: utter_clarify_designer_dog_breeds
+  - action: action_route_to_sbert
+- rule: Respond to pressure washers
+  steps:
+  - intent: pressure_washers
+  - action: utter_clarify_pressure_washers
+  - action: action_route_to_sbert
+- rule: Respond to sore throat
+  steps:
+  - intent: sore_throat
+  - action: utter_clarify_sore_throat
+  - action: action_route_to_sbert
+- rule: Respond to idaho state flower
+  steps:
+  - intent: idaho_state_flower
+  - action: utter_clarify_idaho_state_flower
+  - action: action_route_to_sbert
+- rule: Respond to indiana state fairgrounds
+  steps:
+  - intent: indiana_state_fairgrounds
+  - action: utter_clarify_indiana_state_fairgrounds
+  - action: action_route_to_sbert
+- rule: Respond to fybromyalgia
+  steps:
+  - intent: fybromyalgia
+  - action: utter_clarify_fybromyalgia
+  - action: action_route_to_sbert
+- rule: Respond to french lick resort and casino
+  steps:
+  - intent: french_lick_resort_and_casino
+  - action: utter_clarify_french_lick_resort_and_casino
+  - action: action_route_to_sbert
+- rule: Respond to defender
+  steps:
+  - intent: defender
+  - action: utter_clarify_defender
+  - action: action_route_to_sbert
+- rule: Respond to ontario california airport
+  steps:
+  - intent: ontario_california_airport
+  - action: utter_clarify_ontario_california_airport
+  - action: action_route_to_sbert
+- rule: Respond to volvo
+  steps:
+  - intent: volvo
+  - action: utter_clarify_volvo
+  - action: action_route_to_sbert
+- rule: Respond to rick warren
+  steps:
+  - intent: rick_warren
+  - action: utter_clarify_rick_warren
+  - action: action_route_to_sbert
+- rule: Respond to yahoo
+  steps:
+  - intent: yahoo
+  - action: utter_clarify_yahoo
+  - action: action_route_to_sbert
+- rule: Respond to diversity
+  steps:
+  - intent: diversity
+  - action: utter_clarify_diversity
+  - action: action_route_to_sbert
+- rule: Respond to euclid
+  steps:
+  - intent: euclid
+  - action: utter_clarify_euclid
+  - action: action_route_to_sbert
+- rule: Respond to lower heart rate
+  steps:
+  - intent: lower_heart_rate
+  - action: utter_clarify_lower_heart_rate
+  - action: action_route_to_sbert
+- rule: Respond to starbucks
+  steps:
+  - intent: starbucks
+  - action: utter_clarify_starbucks
+  - action: action_route_to_sbert
+- rule: Respond to inuyasha
+  steps:
+  - intent: inuyasha
+  - action: utter_clarify_inuyasha
+  - action: action_route_to_sbert
+- rule: Respond to ps 2 games
+  steps:
+  - intent: ps_2_games
+  - action: utter_clarify_ps_2_games
+  - action: action_route_to_sbert
+- rule: Respond to getting organized
+  steps:
+  - intent: getting_organized
+  - action: utter_clarify_getting_organized
+  - action: action_route_to_sbert
+- rule: Respond to diabetes education
+  steps:
+  - intent: diabetes_education
+  - action: utter_clarify_diabetes_education
+  - action: action_route_to_sbert
+- rule: Respond to atari
+  steps:
+  - intent: atari
+  - action: utter_clarify_atari
+  - action: action_route_to_sbert
+- rule: Respond to website design hosting
+  steps:
+  - intent: website_design_hosting
+  - action: utter_clarify_website_design_hosting
+  - action: action_route_to_sbert
+- rule: Respond to elliptical trainer
+  steps:
+  - intent: elliptical_trainer
+  - action: utter_clarify_elliptical_trainer
+  - action: action_route_to_sbert
+- rule: Respond to cell phones
+  steps:
+  - intent: cell_phones
+  - action: utter_clarify_cell_phones
+  - action: action_route_to_sbert
+- rule: Respond to hoboken
+  steps:
+  - intent: hoboken
+  - action: utter_clarify_hoboken
+  - action: action_route_to_sbert
+- rule: Respond to gps
+  steps:
+  - intent: gps
+  - action: utter_clarify_gps
+  - action: action_route_to_sbert
+- rule: Respond to pampered chef
+  steps:
+  - intent: pampered_chef
+  - action: utter_clarify_pampered_chef
+  - action: action_route_to_sbert
+- rule: Respond to dogs for adoption
+  steps:
+  - intent: dogs_for_adoption
+  - action: utter_clarify_dogs_for_adoption
+  - action: action_route_to_sbert
+- rule: Respond to disneyland hotel
+  steps:
+  - intent: disneyland_hotel
+  - action: utter_clarify_disneyland_hotel
+  - action: action_route_to_sbert
+- rule: Respond to toilet
+  steps:
+  - intent: toilet
+  - action: utter_clarify_toilet
+  - action: action_route_to_sbert
+- rule: Respond to michworks
+  steps:
+  - intent: michworks
+  - action: utter_clarify_michworks
+  - action: action_route_to_sbert
+- rule: Respond to orange county convention center
+  steps:
+  - intent: orange_county_convention_center
+  - action: utter_clarify_orange_county_convention_center
+  - action: action_route_to_sbert
+- rule: Respond to the music man
+  steps:
+  - intent: the_music_man
+  - action: utter_clarify_the_music_man
+  - action: action_route_to_sbert
+- rule: Respond to the secret garden
+  steps:
+  - intent: the_secret_garden
+  - action: utter_clarify_the_secret_garden
+  - action: action_route_to_sbert
+- rule: Respond to map of the united states
+  steps:
+  - intent: map_of_the_united_states
+  - action: utter_clarify_map_of_the_united_states
+  - action: action_route_to_sbert
+- rule: Respond to solar panels
+  steps:
+  - intent: solar_panels
+  - action: utter_clarify_solar_panels
+  - action: action_route_to_sbert
+- rule: Respond to alexian brothers hospital
+  steps:
+  - intent: alexian_brothers_hospital
+  - action: utter_clarify_alexian_brothers_hospital
+  - action: action_route_to_sbert
+- rule: Respond to indexed annuity
+  steps:
+  - intent: indexed_annuity
+  - action: utter_clarify_indexed_annuity
+  - action: action_route_to_sbert
+- rule: Respond to wilson antenna
+  steps:
+  - intent: wilson_antenna
+  - action: utter_clarify_wilson_antenna
+  - action: action_route_to_sbert
+- rule: Respond to flame designs
+  steps:
+  - intent: flame_designs
+  - action: utter_clarify_flame_designs
+  - action: action_route_to_sbert
+- rule: Respond to mitchell college
+  steps:
+  - intent: mitchell_college
+  - action: utter_clarify_mitchell_college
+  - action: action_route_to_sbert
+- rule: Respond to dog heat
+  steps:
+  - intent: dog_heat
+  - action: utter_clarify_dog_heat
+  - action: action_route_to_sbert
+- rule: Respond to horse hooves
+  steps:
+  - intent: horse_hooves
+  - action: utter_clarify_horse_hooves
+  - action: action_route_to_sbert
+- rule: Respond to avp
+  steps:
+  - intent: avp
+  - action: utter_clarify_avp
+  - action: action_route_to_sbert
+- rule: Respond to discovery channel store
+  steps:
+  - intent: discovery_channel_store
+  - action: utter_clarify_discovery_channel_store
+  - action: action_route_to_sbert
+- rule: Respond to president of the united states
+  steps:
+  - intent: president_of_the_united_states
+  - action: utter_clarify_president_of_the_united_states
+  - action: action_route_to_sbert
+- rule: Respond to iron
+  steps:
+  - intent: iron
+  - action: utter_clarify_iron
+  - action: action_route_to_sbert
+- rule: Respond to uss yorktown charleston sc
+  steps:
+  - intent: uss_yorktown_charleston_sc
+  - action: utter_clarify_uss_yorktown_charleston_sc
+  - action: action_route_to_sbert
+- rule: Respond to ct jobs
+  steps:
+  - intent: ct_jobs
+  - action: utter_clarify_ct_jobs
+  - action: action_route_to_sbert
+- rule: Respond to penguins
+  steps:
+  - intent: penguins
+  - action: utter_clarify_penguins
+  - action: action_route_to_sbert
+- rule: Respond to how to build a fence
+  steps:
+  - intent: how_to_build_a_fence
+  - action: utter_clarify_how_to_build_a_fence
+  - action: action_route_to_sbert
+- rule: Respond to kcs
+  steps:
+  - intent: kcs
+  - action: utter_clarify_kcs
+  - action: action_route_to_sbert
+- rule: Respond to bellevue
+  steps:
+  - intent: bellevue
+  - action: utter_clarify_bellevue
+  - action: action_route_to_sbert
+- rule: Respond to worm
+  steps:
+  - intent: worm
+  - action: utter_clarify_worm
+  - action: action_route_to_sbert
+- rule: Respond to texas border patrol
+  steps:
+  - intent: texas_border_patrol
+  - action: utter_clarify_texas_border_patrol
+  - action: action_route_to_sbert
+- rule: Respond to flushing
+  steps:
+  - intent: flushing
+  - action: utter_clarify_flushing
+  - action: action_route_to_sbert
+- rule: Respond to moths
+  steps:
+  - intent: moths
+  - action: utter_clarify_moths
+  - action: action_route_to_sbert
+- rule: Respond to korean language
+  steps:
+  - intent: korean_language
+  - action: utter_clarify_korean_language
+  - action: action_route_to_sbert
+- rule: Respond to income tax return online
+  steps:
+  - intent: income_tax_return_online
+  - action: utter_clarify_income_tax_return_online
+  - action: action_route_to_sbert
+- rule: Respond to vldl levels
+  steps:
+  - intent: vldl_levels
+  - action: utter_clarify_vldl_levels
+  - action: action_route_to_sbert
+- rule: Respond to pvc
+  steps:
+  - intent: pvc
+  - action: utter_clarify_pvc
+  - action: action_route_to_sbert
+- rule: Respond to sewing instructions
+  steps:
+  - intent: sewing_instructions
+  - action: utter_clarify_sewing_instructions
+  - action: action_route_to_sbert
+- rule: Respond to air travel information
+  steps:
+  - intent: air_travel_information
+  - action: utter_clarify_air_travel_information
+  - action: action_route_to_sbert
+- rule: Respond to to be or not to be that is the question
+  steps:
+  - intent: to_be_or_not_to_be_that_is_the_question
+  - action: utter_clarify_to_be_or_not_to_be_that_is_the_question
+  - action: action_route_to_sbert
+- rule: Respond to living in india
+  steps:
+  - intent: living_in_india
+  - action: utter_clarify_living_in_india
+  - action: action_route_to_sbert
+- rule: Respond to the sun
+  steps:
+  - intent: the_sun
+  - action: utter_clarify_the_sun
+  - action: action_route_to_sbert
+- rule: Respond to neil young
+  steps:
+  - intent: neil_young
+  - action: utter_clarify_neil_young
+  - action: action_route_to_sbert
+- rule: Respond to kiwi
+  steps:
+  - intent: kiwi
+  - action: utter_clarify_kiwi
+  - action: action_route_to_sbert
+- rule: Respond to tornadoes
+  steps:
+  - intent: tornadoes
+  - action: utter_clarify_tornadoes
+  - action: action_route_to_sbert
+- rule: Respond to raised gardens
+  steps:
+  - intent: raised_gardens
+  - action: utter_clarify_raised_gardens
+  - action: action_route_to_sbert
+- rule: Respond to bobcat
+  steps:
+  - intent: bobcat
+  - action: utter_clarify_bobcat
+  - action: action_route_to_sbert
+- rule: Respond to dieting
+  steps:
+  - intent: dieting
+  - action: utter_clarify_dieting
+  - action: action_route_to_sbert
+- rule: Respond to voyager
+  steps:
+  - intent: voyager
+  - action: utter_clarify_voyager
+  - action: action_route_to_sbert
+- rule: Respond to appraisals
+  steps:
+  - intent: appraisals
+  - action: utter_clarify_appraisals
+  - action: action_route_to_sbert
+- rule: Respond to keyboard reviews
+  steps:
+  - intent: keyboard_reviews
+  - action: utter_clarify_keyboard_reviews
+  - action: action_route_to_sbert
+- rule: Respond to afghanistan
+  steps:
+  - intent: afghanistan
+  - action: utter_clarify_afghanistan
+  - action: action_route_to_sbert
+- rule: Respond to joints
+  steps:
+  - intent: joints
+  - action: utter_clarify_joints
+  - action: action_route_to_sbert
+- rule: Respond to memory
+  steps:
+  - intent: memory
+  - action: utter_clarify_memory
+  - action: action_route_to_sbert
+- rule: Respond to continental plates
+  steps:
+  - intent: continental_plates
+  - action: utter_clarify_continental_plates
+  - action: action_route_to_sbert
+- rule: Respond to milwaukee journal sentinel
+  steps:
+  - intent: milwaukee_journal_sentinel
+  - action: utter_clarify_milwaukee_journal_sentinel
+  - action: action_route_to_sbert
+- rule: Respond to bart sf
+  steps:
+  - intent: bart_sf
+  - action: utter_clarify_bart_sf
+  - action: action_route_to_sbert
+- rule: Respond to who invented music
+  steps:
+  - intent: who_invented_music
+  - action: utter_clarify_who_invented_music
+  - action: action_route_to_sbert
+- rule: Respond to forearm pain
+  steps:
+  - intent: forearm_pain
+  - action: utter_clarify_forearm_pain
+  - action: action_route_to_sbert
+- rule: Respond to ocd
+  steps:
+  - intent: ocd
+  - action: utter_clarify_ocd
+  - action: action_route_to_sbert
+- rule: Respond to used car parts
+  steps:
+  - intent: used_car_parts
+  - action: utter_clarify_used_car_parts
+  - action: action_route_to_sbert
+- rule: Respond to mgb
+  steps:
+  - intent: mgb
+  - action: utter_clarify_mgb
+  - action: action_route_to_sbert
+- rule: Respond to er tv show
+  steps:
+  - intent: er_tv_show
+  - action: utter_clarify_er_tv_show
+  - action: action_route_to_sbert
+- rule: Respond to the wall
+  steps:
+  - intent: the_wall
+  - action: utter_clarify_the_wall
+  - action: action_route_to_sbert
+- rule: Respond to raffles
+  steps:
+  - intent: raffles
+  - action: utter_clarify_raffles
+  - action: action_route_to_sbert
+- rule: Respond to titan
+  steps:
+  - intent: titan
+  - action: utter_clarify_titan
+  - action: action_route_to_sbert
+- rule: Respond to rice
+  steps:
+  - intent: rice
+  - action: utter_clarify_rice
+  - action: action_route_to_sbert
+- rule: Respond to south africa
+  steps:
+  - intent: south_africa
+  - action: utter_clarify_south_africa
+  - action: action_route_to_sbert
+- rule: Respond to sat
+  steps:
+  - intent: sat
+  - action: utter_clarify_sat
+  - action: action_route_to_sbert
+- rule: Respond to satellite
+  steps:
+  - intent: satellite
+  - action: utter_clarify_satellite
+  - action: action_route_to_sbert
+version: '2.0'

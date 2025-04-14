@@ -1,0 +1,614 @@
+actions:
+- action_route_to_sbert
+intents:
+- obama_family_tree
+- cheap_internet
+- ritz_carlton_lake_las_vegas
+- fickle_creek_farm
+- madam_cj_walker
+- indiana_child_support
+- sonoma_county_medical_services
+- universal_animal_cuts_reviews
+- cass_county_missouri
+- ralph_owen_brewster
+- mayo_clinic_jacksonville_fl
+- gmat_prep_classes
+- map_of_brazil
+- lymphoma_in_dogs
+- kenmore_gas_water_heater
+- hp_mini_2140
+- adobe_indian_houses
+- pacific_northwest_laboratory
+- california_franchise_tax_board
+- dangers_of_asbestos
+- poem_in_your_pocket_day
+- interview_thank_you
+- djs
+- tv_on_computer
+- sit_and_reach_test
+- culpeper_national_cemetery
+- von_willebrand_disease
+- bowflex_power_pro
+- butter_and_margarine
+- us_capitol_map
+- dutchess_county_tourism
+- atypical_squamous_cells
+- iowa_food_stamp_program
+- map
+- fact_on_uranus
+- equal_opportunity_employer
+- mothers_day_songs
+- all_men_are_created_equal
+- electronic_skeet_shoot
+- source_of_the_nile
+- american_military_university
+- rock_and_gem_shows
+- jax_chemical_company
+- rocky_mountain_news
+- dinosaurs
+- east_ridge_high_school
+- va_dmv_registration
+- illinois_state_tax
+- arkadelphia_health_club
+- trombone_for_sale
+- vines_for_shade
+- sherwood_regional_library
+- tangible_personal_property_tax
+- martha_stewart_and_imclone
+- uplift_at_yellowstone_national_park
+- espn_sports
+- tn_highway_patrol
+- 403b
+- angular_cheilitis
+- pocono
+- figs
+- last_supper_painting
+- university_of_phoenix
+- the_beatles_rock_band
+- septic_system_design
+- porterville
+- arizona_game_and_fish
+- grilling
+- furniture_for_small_spaces
+- dnr
+- arkansas
+- hobby_stores
+- blue_throated_hummingbird
+- computer_programming
+- barbados
+- lipoma
+- battles_in_the_civil_war
+- poker_tournaments
+- scooters
+- ron_howard
+- becoming_a_paralegal
+- hip_fractures
+- rock_art
+- signs_of_a_heartattack
+- weather_strip
+- best_long_term_care_insurance
+- pork_tenderloin
+- black_history
+- wedding_budget_calculator
+- newyork_hotels
+- old_coins
+- quit_smoking
+- kansas_city_mo
+- civil_right_movement
+- credit_report
+- unc
+- vanuatu
+- internet_phone_service
+- gs_pay_rate
+- the_current
+- brooks_brothers_clearance
+- churchill_downs
+- condos_in_florida
+- dog_clean_up_bags
+- designer_dog_breeds
+- pressure_washers
+- sore_throat
+- idaho_state_flower
+- indiana_state_fairgrounds
+- fybromyalgia
+- french_lick_resort_and_casino
+- defender
+- ontario_california_airport
+- volvo
+- rick_warren
+- yahoo
+- diversity
+- euclid
+- lower_heart_rate
+- starbucks
+- inuyasha
+- ps_2_games
+- getting_organized
+- diabetes_education
+- atari
+- website_design_hosting
+- elliptical_trainer
+- cell_phones
+- hoboken
+- gps
+- pampered_chef
+- dogs_for_adoption
+- disneyland_hotel
+- toilet
+- michworks
+- orange_county_convention_center
+- the_music_man
+- the_secret_garden
+- map_of_the_united_states
+- solar_panels
+- alexian_brothers_hospital
+- indexed_annuity
+- wilson_antenna
+- flame_designs
+- mitchell_college
+- dog_heat
+- horse_hooves
+- avp
+- discovery_channel_store
+- president_of_the_united_states
+- iron
+- uss_yorktown_charleston_sc
+- ct_jobs
+- penguins
+- how_to_build_a_fence
+- kcs
+- bellevue
+- worm
+- texas_border_patrol
+- flushing
+- moths
+- korean_language
+- income_tax_return_online
+- vldl_levels
+- pvc
+- sewing_instructions
+- air_travel_information
+- to_be_or_not_to_be_that_is_the_question
+- living_in_india
+- the_sun
+- neil_young
+- kiwi
+- tornadoes
+- raised_gardens
+- bobcat
+- dieting
+- voyager
+- appraisals
+- keyboard_reviews
+- afghanistan
+- joints
+- memory
+- continental_plates
+- milwaukee_journal_sentinel
+- bart_sf
+- who_invented_music
+- forearm_pain
+- ocd
+- used_car_parts
+- mgb
+- er_tv_show
+- the_wall
+- raffles
+- titan
+- rice
+- south_africa
+- sat
+- satellite
+responses:
+  utter_clarify_403b:
+  - text: what is a 403b plan?
+  utter_clarify_adobe_indian_houses:
+  - text: how does one build an adobe house?
+  utter_clarify_afghanistan:
+  - text: find information about afghanistan\'s history, government, religion, and
+      culture.
+  utter_clarify_air_travel_information:
+  - text: what restrictions are there for checked baggage during air travel?
+  utter_clarify_alexian_brothers_hospital:
+  - text: go to the alexian brothers health system homepage.
+  utter_clarify_all_men_are_created_equal:
+  - text: who said \"all men are created equal\"?
+  utter_clarify_american_military_university:
+  - text: what are the registration requirements for enrolling at american military
+      university?
+  utter_clarify_angular_cheilitis:
+  - text: what home remedies are there for angular cheilitis?
+  utter_clarify_appraisals:
+  - text: what companies can give an appraisal of my home\'s value?
+  utter_clarify_arizona_game_and_fish:
+  - text: take me to the arizona game and fish department homepage.
+  utter_clarify_arkadelphia_health_club:
+  - text: locations and reviews of health clubs in arkadelphia, arkansas
+  utter_clarify_arkansas:
+  - text: provide arkansas tourist information.
+  utter_clarify_atari:
+  - text: i want to read about the history of the atari 2600 and other atari game
+      consoles.
+  utter_clarify_atypical_squamous_cells:
+  - text: what do atypical squamous cells mean on a pap smear test?
+  utter_clarify_avp:
+  - text: go to the homepage for the avp, sponsor of professional beach volleyball
+      events.
+  utter_clarify_barbados:
+  - text: find information on barbados history.
+  utter_clarify_bart_sf:
+  - text: find bart train schedules and fares.
+  utter_clarify_battles_in_the_civil_war:
+  - text: what were the major battles in the us civil war?
+  utter_clarify_becoming_a_paralegal:
+  - text: what training is required to become a paralegal?
+  utter_clarify_bellevue:
+  - text: find information about bellevue, washington.
+  utter_clarify_best_long_term_care_insurance:
+  - text: what are the different types of long term care insurance policies?
+  utter_clarify_black_history:
+  - text: find a timeline for african americans in the united states.
+  utter_clarify_blue_throated_hummingbird:
+  - text: find a picture of a blue-throated hummingbird.
+  utter_clarify_bobcat:
+  - text: find dealers that sell or rent bobcat tractors and construction equipment.
+  utter_clarify_bowflex_power_pro:
+  - text: find information about the bowflex power pro.
+  utter_clarify_brooks_brothers_clearance:
+  - text: find brooks brothers online promotional coupons.
+  utter_clarify_butter_and_margarine:
+  - text: what is the difference between butter and margarine?
+  utter_clarify_california_franchise_tax_board:
+  - text: find information about the california franchise tax board.
+  utter_clarify_cass_county_missouri:
+  - text: find demographic information about cass county, mo.
+  utter_clarify_cell_phones:
+  - text: what free phones are available from different vendors?
+  utter_clarify_cheap_internet:
+  - text: what are some low-cost broadband internet providers?
+  utter_clarify_churchill_downs:
+  - text: find information on the racing schedule at churchill downs.
+  utter_clarify_civil_right_movement:
+  - text: what issues were addressed in the civil rights act of 1964?
+  utter_clarify_computer_programming:
+  - text: what type of careers are there for computer programmers?
+  utter_clarify_condos_in_florida:
+  - text: find beachfront condos for sale in florida.
+  utter_clarify_continental_plates:
+  - text: find maps of the continental plates.
+  utter_clarify_credit_report:
+  - text: how do i get my free annual credit report?
+  utter_clarify_ct_jobs:
+  - text: find sites for finding a job in connecticut.
+  utter_clarify_culpeper_national_cemetery:
+  - text: what is the history of the culpeper national cemetery?
+  utter_clarify_dangers_of_asbestos:
+  - text: what specific health problems arise from exposure to asbestos?
+  utter_clarify_defender:
+  - text: find information on the land rover defender sport-utility vehicle.
+  utter_clarify_designer_dog_breeds:
+  - text: what breeds of small or toy dog hybrids are there?
+  utter_clarify_diabetes_education:
+  - text: find free diabetes education materials such as videos, pamphlets, and books.
+  utter_clarify_dieting:
+  - text: find \"reasonable\" dieting advice, that is not fads or medications but
+      reasonable methods for weight loss.
+  utter_clarify_dinosaurs:
+  - text: go to the discovery channel\'s dinosaur site, which has pictures of dinosaurs
+      and games.
+  utter_clarify_discovery_channel_store:
+  - text: find the discovery channel store homepage.
+  utter_clarify_disneyland_hotel:
+  - text: what hotels are near disneyland?
+  utter_clarify_diversity:
+  - text: how is workplace diversity achieved and managed?
+  utter_clarify_djs:
+  - text: i\'m looking for djs that specialize in hip-hop music.
+  utter_clarify_dnr:
+  - text: what are \"do not resuscitate\" orders and how do you get one in place?
+  utter_clarify_dog_clean_up_bags:
+  - text: can i order dog clean-up bags online?
+  utter_clarify_dog_heat:
+  - text: what is the effect of excessive heat on dogs?
+  utter_clarify_dogs_for_adoption:
+  - text: find organizations that offer dogs for adoption.
+  utter_clarify_dutchess_county_tourism:
+  - text: find information for tourists about dutchess county, ny.
+  utter_clarify_east_ridge_high_school:
+  - text: demographics of east ridge high school in lick creek, kentucky
+  utter_clarify_electronic_skeet_shoot:
+  - text: what different types of electronic skeet shooting games are available?
+  utter_clarify_elliptical_trainer:
+  - text: i\'m looking for reviews of elliptical machines.
+  utter_clarify_equal_opportunity_employer:
+  - text: what does the phrase, \"equal opportunity employer\" mean?
+  utter_clarify_er_tv_show:
+  - text: find summaries of episodes from the show er.
+  utter_clarify_espn_sports:
+  - text: i\'m looking for college football and basketball scores.
+  utter_clarify_euclid:
+  - text: find information on the greek mathematician euclid.
+  utter_clarify_fact_on_uranus:
+  - text: find information about the planet uranus.
+  utter_clarify_fickle_creek_farm:
+  - text: find general information about fickle creek farm in north carolina
+  utter_clarify_figs:
+  - text: find information on nutritional or health benefits of figs.
+  utter_clarify_flame_designs:
+  - text: find free flame design clipart i can use on a website.
+  utter_clarify_flushing:
+  - text: find information about flushing, a neighborhood in new york city.
+  utter_clarify_forearm_pain:
+  - text: what kinds of injuries or conditions can cause forearm pain?
+  utter_clarify_french_lick_resort_and_casino:
+  - text: what jobs are available at french lick casino and resort?
+  utter_clarify_furniture_for_small_spaces:
+  - text: what are some small space decorating dos and don\'ts?
+  utter_clarify_fybromyalgia:
+  - text: what are the primary symptoms or signs of fybromyalgia?
+  utter_clarify_getting_organized:
+  - text: find tips on getting organized, both reducing clutter and managing time.
+  utter_clarify_gmat_prep_classes:
+  - text: who are some companies that offer gmat prep classes?
+  utter_clarify_gps:
+  - text: find reviews of gps units and car navigation systems.
+  utter_clarify_grilling:
+  - text: find kabob recipes.
+  utter_clarify_gs_pay_rate:
+  - text: find the general schedule pay tables.
+  utter_clarify_hip_fractures:
+  - text: find information on hip fractures in the elderly.
+  utter_clarify_hobby_stores:
+  - text: what hobby stores carry trains?
+  utter_clarify_hoboken:
+  - text: find restaurants in hoboken.
+  utter_clarify_horse_hooves:
+  - text: find information about horses\' hooves and how to care for them.
+  utter_clarify_how_to_build_a_fence:
+  - text: find information about building a wooden fence.
+  utter_clarify_hp_mini_2140:
+  - text: retailers, including price information, of the hp mini 2140 notebook computer
+  utter_clarify_idaho_state_flower:
+  - text: what is the state flower of idaho?
+  utter_clarify_illinois_state_tax:
+  - text: 'information about the sales tax in illinois: what is the rate and what
+      is it levied on'
+  utter_clarify_income_tax_return_online:
+  - text: find a site where i can fill out my federal income tax return online.
+  utter_clarify_indexed_annuity:
+  - text: what is an indexed annuity? what are their advantages and disadvantages?
+      what kinds of indexed annuities are there?
+  utter_clarify_indiana_child_support:
+  - text: find the official legal rules and procedures pertaining to child support
+      in indiana.
+  utter_clarify_indiana_state_fairgrounds:
+  - text: what events are held at the indiana state fairgrounds?
+  utter_clarify_internet_phone_service:
+  - text: what is the best internet phone service?
+  utter_clarify_interview_thank_you:
+  - text: get help on writing a thank-you letter after a job interview.
+  utter_clarify_inuyasha:
+  - text: i\'m looking for pictures and wallpaper images from inuyasha.
+  utter_clarify_iowa_food_stamp_program:
+  - text: find general information about iowa\'s food stamps program.
+  utter_clarify_iron:
+  - text: find information about iron as an essential nutrient.
+  utter_clarify_jax_chemical_company:
+  - text: contact information for jax chemical company
+  utter_clarify_joints:
+  - text: find information about joints in the human body.
+  utter_clarify_kansas_city_mo:
+  - text: what are some kansas city, mo tourist attractions?
+  utter_clarify_kcs:
+  - text: find information on kcs energy, inc., and their merger with petrohawk energy
+      corporation.
+  utter_clarify_kenmore_gas_water_heater:
+  - text: reviews of kenmore gas water heaters
+  utter_clarify_keyboard_reviews:
+  - text: find reviews of computer keyboards.
+  utter_clarify_kiwi:
+  - text: find information on kiwi fruit.
+  utter_clarify_korean_language:
+  - text: find background information about the korean language.
+  utter_clarify_last_supper_painting:
+  - text: find a picture of the last supper painting by leonardo da vinci.
+  utter_clarify_lipoma:
+  - text: what are the causes of lipoma tumors in humans?
+  utter_clarify_living_in_india:
+  - text: find information about buying real estate in india.
+  utter_clarify_lower_heart_rate:
+  - text: what causes the heart to beat faster or slower?
+  utter_clarify_lymphoma_in_dogs:
+  - text: what treatments are available for dogs diagnosed with lymphoma?
+  utter_clarify_madam_cj_walker:
+  - text: find historical information about madam c. j. walker.
+  utter_clarify_map:
+  - text: take me to the google maps homepage.
+  utter_clarify_map_of_brazil:
+  - text: what are the boundaries of the political jurisdictions in brazil?
+  utter_clarify_map_of_the_united_states:
+  - text: find us road maps.
+  utter_clarify_martha_stewart_and_imclone:
+  - text: find information/timeline about martha stewart\'s insider trading case
+  utter_clarify_mayo_clinic_jacksonville_fl:
+  - text: what medical services are available at the mayo clinic in jacksonville,
+      fl?
+  utter_clarify_memory:
+  - text: find information about human memory.
+  utter_clarify_mgb:
+  - text: find information about the mgb sports car.
+  utter_clarify_michworks:
+  - text: what jobs are available in michigan?
+  utter_clarify_milwaukee_journal_sentinel:
+  - text: find the milwaukee journal sentinel web site.
+  utter_clarify_mitchell_college:
+  - text: find the homepage for mitchell college.
+  utter_clarify_mothers_day_songs:
+  - text: lyrics of songs written for mothers\' day
+  utter_clarify_moths:
+  - text: what do moths and butterflies eat?
+  utter_clarify_neil_young:
+  - text: find albums by neil young to buy.
+  utter_clarify_newyork_hotels:
+  - text: find inexpensive hotels in new york city.
+  utter_clarify_obama_family_tree:
+  - text: find the time magazine photo essay \"barack obama\'s family tree\".
+  utter_clarify_ocd:
+  - text: find basic background information on obsessive-compulsive disorder (ocd).
+  utter_clarify_old_coins:
+  - text: what is a good way to begin collecting old coins?
+  utter_clarify_ontario_california_airport:
+  - text: find flight information for the ontario, ca airport.
+  utter_clarify_orange_county_convention_center:
+  - text: find a schedule of events taking place at the orange county convention center.
+  utter_clarify_pacific_northwest_laboratory:
+  - text: 'career opportunities at pnl: what openings are currently available, what
+      educational background is required, what prior experience is needed'
+  utter_clarify_pampered_chef:
+  - text: how do i host a pampered chef cooking show?
+  utter_clarify_penguins:
+  - text: find the homepage of the pittsburgh penguins
+  utter_clarify_pocono:
+  - text: find general information on tourist activities in pennsylvania\'s pocono
+      mountains.
+  utter_clarify_poem_in_your_pocket_day:
+  - text: what is \"poem in your pocket day\"?
+  utter_clarify_poker_tournaments:
+  - text: i want to find information on the world series of poker.
+  utter_clarify_pork_tenderloin:
+  - text: what time and temperature should be used to roast a pork tenderloin?
+  utter_clarify_porterville:
+  - text: what k-12 schools are in porterville, ca?
+  utter_clarify_president_of_the_united_states:
+  - text: find the homepage of the president of the united states.
+  utter_clarify_pressure_washers:
+  - text: where can i buy replacement parts for pressure washers?
+  utter_clarify_ps_2_games:
+  - text: find reviews of playstation 2 games.
+  utter_clarify_pvc:
+  - text: find information about pvc pipes and fittings.
+  utter_clarify_quit_smoking:
+  - text: what are the ways you can quit smoking?
+  utter_clarify_raffles:
+  - text: find the homepage of raffles hotel in singapore.
+  utter_clarify_raised_gardens:
+  - text: find plans for building a raised garden bed.
+  utter_clarify_ralph_owen_brewster:
+  - text: find biographical information about ralph owen brewster.
+  utter_clarify_rice:
+  - text: find recipes for rice, for example fried rice or rice pudding.
+  utter_clarify_rick_warren:
+  - text: take me to rick warren\'s homepage.
+  utter_clarify_ritz_carlton_lake_las_vegas:
+  - text: find information about the ritz carlton resort at lake las vegas.
+  utter_clarify_rock_and_gem_shows:
+  - text: looking for locations and dates of rock and gem shows.
+  utter_clarify_rock_art:
+  - text: where can i learn about rock painting or buy a rock-painting kit?
+  utter_clarify_rocky_mountain_news:
+  - text: discussion of the impending sale of the rocky mountain news
+  utter_clarify_ron_howard:
+  - text: what movies has ron howard directed?
+  utter_clarify_sat:
+  - text: how do i register to take the sat exam?
+  utter_clarify_satellite:
+  - text: find background information about man-made satellites.
+  utter_clarify_scooters:
+  - text: find kids\' scooters for sale.
+  utter_clarify_septic_system_design:
+  - text: how does a septic system work?
+  utter_clarify_sewing_instructions:
+  - text: find sewing sites for beginners.
+  utter_clarify_sherwood_regional_library:
+  - text: what services are provided by the sherwood regional library?
+  utter_clarify_signs_of_a_heartattack:
+  - text: what are the symptoms of a heart attack?
+  utter_clarify_sit_and_reach_test:
+  - text: find out what the \"sit and reach test\" is.
+  utter_clarify_solar_panels:
+  - text: what kinds of solar panels and photovoltaic cells are there?
+  utter_clarify_sonoma_county_medical_services:
+  - text: what medical services are available in sonoma county, california?
+  utter_clarify_sore_throat:
+  - text: what causes a sore throat?
+  utter_clarify_source_of_the_nile:
+  - text: how to play the board game \"source of the nile\"
+  utter_clarify_south_africa:
+  - text: find pages that give the history of south africa.
+  utter_clarify_starbucks:
+  - text: take me to the starbucks homepage.
+  utter_clarify_tangible_personal_property_tax:
+  - text: what is the definition of tangible personal property for tax purposes?
+  utter_clarify_texas_border_patrol:
+  - text: find the homepage for supporters of the u.s. border patrol in texas.
+  utter_clarify_the_beatles_rock_band:
+  - text: find a listing of beatles songs.
+  utter_clarify_the_current:
+  - text: i want to find the homepage of the current magazine in san antonio.
+  utter_clarify_the_music_man:
+  - text: find lyrics for songs from the music man.
+  utter_clarify_the_secret_garden:
+  - text: find reviews of the book the secret garden.
+  utter_clarify_the_sun:
+  - text: find information about the sun, the star in our solar system.
+  utter_clarify_the_wall:
+  - text: find information about the pink floyd album, \"the wall\"
+  utter_clarify_titan:
+  - text: find information on the nissan titan truck.
+  utter_clarify_tn_highway_patrol:
+  - text: what are the requirements to become a tennessee highway patrol state trooper?
+  utter_clarify_to_be_or_not_to_be_that_is_the_question:
+  - text: find the text of hamlet\'s famous \"to be or not to be\" soliloquy.
+  utter_clarify_toilet:
+  - text: what different kinds of toilets exist, and how do they differ?
+  utter_clarify_tornadoes:
+  - text: find information about tornadoes, what causes them, and where they occur.
+  utter_clarify_trombone_for_sale:
+  - text: information on where i could buy a new or used trombone
+  utter_clarify_tv_on_computer:
+  - text: looking for information on how to watch television programming on your computer.
+  utter_clarify_unc:
+  - text: what campuses are part of the university of north carolina?
+  utter_clarify_universal_animal_cuts_reviews:
+  - text: find testimonials of universal animal cuts nutritional supplement.
+  utter_clarify_university_of_phoenix:
+  - text: what online programs are offered by the university of phoenix?
+  utter_clarify_uplift_at_yellowstone_national_park:
+  - text: how likely is a volcanic eruption at yellowstone national park, and what
+      would be the effects of such an eruption?
+  utter_clarify_us_capitol_map:
+  - text: find a map of the inside of the us capitol.
+  utter_clarify_used_car_parts:
+  - text: i\'m looking for online sites that sell car parts.
+  utter_clarify_uss_yorktown_charleston_sc:
+  - text: find historical information about the uss yorktown aircraft carriers used
+      during world war 2.
+  utter_clarify_va_dmv_registration:
+  - text: information and procedures for registering vehicles in virginia
+  utter_clarify_vanuatu:
+  - text: find a map of the islands of vanuatu.
+  utter_clarify_vines_for_shade:
+  - text: information on vines that can be grown in shady areas
+  utter_clarify_vldl_levels:
+  - text: how are vldl levels determined?
+  utter_clarify_volvo:
+  - text: i\'m looking for volvo\'s homepage.
+  utter_clarify_von_willebrand_disease:
+  - text: what is von willebrand disease?
+  utter_clarify_voyager:
+  - text: find the homepage for the nasa voyager mission.
+  utter_clarify_weather_strip:
+  - text: how do you weather strip automobile windows and doors?
+  utter_clarify_website_design_hosting:
+  - text: what are the cheapest web hosting companies? who offers free web hosting?
+  utter_clarify_wedding_budget_calculator:
+  - text: i want to find online guides, tips, and checklists for planning a wedding.
+  utter_clarify_who_invented_music:
+  - text: find information on the history and development of music.
+  utter_clarify_wilson_antenna:
+  - text: go to the wilson antenna homepage.
+  utter_clarify_worm:
+  - text: find information about computer worms, viruses, and spyware.
+  utter_clarify_yahoo:
+  - text: take me to yahoo! mail.
+version: '2.0'
