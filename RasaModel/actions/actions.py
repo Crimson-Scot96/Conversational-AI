@@ -1,22 +1,44 @@
-
-from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from actions.bm25 import retrieve_summary  # Import your BM25 retrieval function
+import logging
 
-# might connect to sbert idk
-class ActionRouteToSBERT(Action):
-    def name(self) -> Text:
-        return "action_route_to_sbert"
+# Enable logging
+logging.basicConfig(level=logging.DEBUG)
 
-    def run(self,
-            dispatcher: CollectingDispatcher,
+
+class ActionRouteToBM25(Action):
+    def name(self) -> str:
+        return "action_route_to_bm25"  # Action name that Rasa will call
+
+    def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]
-        ) -> List[Dict[Text, Any]]:
+            domain: dict) -> list:
 
-        user_input = tracker.latest_message.get('text')
-        # testing output
-        answer = f"[Placeholder response] You said: '{user_input}'"
+        # Get the user's message (the query)
+        query = tracker.latest_message.get('text')
 
-        dispatcher.utter_message(text=answer)
+        # Extract the user's intent
+        intent = tracker.latest_message['intent'].get('name')
+
+        # Log the query and intent
+        logging.debug(f"Received query: {query}")
+        logging.debug(f"Detected intent: {intent}")
+
+        try:
+            # Pass both the query and intent to the retrieve_summary function
+            top_summary = retrieve_summary(query, intent)  # Modify the function call to pass the intent
+
+            # Check if the retrieve_summary function returned "not confident"
+            if top_summary == "not confident":
+                dispatcher.utter_message(text="Sorry, I couldn't find an answer.")
+            else:
+                # Send the top-ranked summary to the user
+                dispatcher.utter_message(text=top_summary)
+
+        except Exception as e:
+            # Handle any exceptions gracefully
+            dispatcher.utter_message(text="Sorry, I couldn't find an answer.")
+            logging.error(f"Error: {e}")
+
         return []

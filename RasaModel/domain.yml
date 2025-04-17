@@ -1,5 +1,5 @@
 actions:
-- action_route_to_sbert
+- action_route_to_bm25
 intents:
 - obama_family_tree
 - cheap_internet
