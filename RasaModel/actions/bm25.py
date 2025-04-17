@@ -48,7 +48,7 @@ def retrieve_summary(query, intent, bm25_top_n=5, confidence_threshold=0.40):
     # Get the number of available summaries
     available_summaries_count = len(all_summaries)
 
-    # Ensure bm25_top_n does not exceed the number of available summaries
+
     top_n = min(bm25_top_n, available_summaries_count)
 
     # Get indices of top n BM25 scores
@@ -63,7 +63,7 @@ def retrieve_summary(query, intent, bm25_top_n=5, confidence_threshold=0.40):
             bm25_score = bm25_scores[idx]
             f.write(f"[BM25: {bm25_score:.4f}] {all_summaries[idx]}\n")
 
-    # Confidence check (optional; can adjust/remove as needed)
+    # Confidence check
     if top_n > 0:  # Only proceed if we have top results
         top_score = bm25_scores[top_indices[0]]
         if top_score < confidence_threshold:

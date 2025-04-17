@@ -9,13 +9,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 class ActionRouteToBM25(Action):
     def name(self) -> str:
-        return "action_route_to_bm25"  # Action name that Rasa will call
+        return "action_route_to_bm25"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: dict) -> list:
 
-        # Get the user's message (the query)
+        # Get the user's message
         query = tracker.latest_message.get('text')
 
         # Extract the user's intent
@@ -27,7 +27,7 @@ class ActionRouteToBM25(Action):
 
         try:
             # Pass both the query and intent to the retrieve_summary function
-            top_summary = retrieve_summary(query, intent)  # Modify the function call to pass the intent
+            top_summary = retrieve_summary(query, intent)
 
             # Check if the retrieve_summary function returned "not confident"
             if top_summary == "not confident":
@@ -37,7 +37,7 @@ class ActionRouteToBM25(Action):
                 dispatcher.utter_message(text=top_summary)
 
         except Exception as e:
-            # Handle any exceptions gracefully
+
             dispatcher.utter_message(text="Sorry, I couldn't find an answer.")
             logging.error(f"Error: {e}")
 
