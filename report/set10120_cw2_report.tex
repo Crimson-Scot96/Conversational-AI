@@ -98,26 +98,11 @@ Once completed, the Wikipedia Summaries were shaped into the cleaned dataset abo
 \section{RASA}
 RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable models. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively.
 
-% Insert Image Template
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{your_image_filename_here}
-    \caption{RASA Integration}
-    \label{fig:rasa_integration}
-\end{figure}
-
 \section{Best Matching 25 (BM25)}
 BM25 was the key AI model in matching user queries to the relevant Wikipedia summaries within the system. The model used was from Huggingface and constructed via a Python script. 
 
 The documents used were the Wikipedia Summaries from the generated CSV. The result was that the system determined the need for clarification based on a tolerance score of 0.40 for similarity. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
 
-% Insert Image Template
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{your_image_filename_here}
-    \caption{BM25 Matching}
-    \label{fig:bm25_matching}
-\end{figure}
 
 \section{SBERT}
 The final step was determining the suitability of the top-ranked result. A specialized version of BERT called SBERT from Huggingface was utilized.
