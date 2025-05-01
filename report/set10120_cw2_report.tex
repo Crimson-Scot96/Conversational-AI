@@ -13,6 +13,8 @@
 
 \usepackage{inconsolata}
 
+\usepackage{graphicx}
+
 \title{Asking Clarifying Questions for Conversational Search}
 
 \author{
@@ -50,9 +52,9 @@ Existing systems, prior research etc.
 The system for the clarification model was constructed through a series of key components:User queries with a question for the system, RASA for application control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to rank the best results. The dependencies and relationships of these components are illustrated below.
 
 \begin{figure}[htbp]
-  \includegraphics[width= 0.25 \linewidth]{.Images/System Diagram.drawio.svg}
+  \includegraphics[width=\linewidth]{./img/system_diagram.png}
   \caption{Enter Caption}
-  \label{fig:enter-label}
+  \label{fig:sys_diag}
 \end{figure}
 
 \section{Qulac Dataset}
@@ -91,7 +93,7 @@ The Wikipedia summaries were generated using a series of GET responses contained
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=0.25 \textwidth]{Images/Wiki.jpg}
+  \includegraphics[width=\linewidth]{./img/wiki.png}
   \caption{Wikipedia Summaries Generation}
   \label{fig:wikipedia method}
 \end{figure}
@@ -113,12 +115,7 @@ The documents used were the Wikipedia Summaries from the generated CSV. The resu
 \section{SBERT}
 The final step was determining the suitability of the top-ranked result. A specialized version of BERT called SBERT from Huggingface was utilized.
 
- \newline
- \newline
-
 Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query (tagged with \texttt{[Q]}) and the next element (a question and its answer tagged with \texttt{[A]}).
- \newline
- \newline
 
 The model applied a similarity score with a tolerance threshold of 0.4. If the context and question's similarity score was above 0.4, the result was deemed suitable; otherwise, it was not ranked.
 
