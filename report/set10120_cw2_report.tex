@@ -1,5 +1,3 @@
-\pdfoutput=1
-
 \documentclass[11pt]{article}
 
 \usepackage[]{ACL2023}
@@ -48,14 +46,13 @@ Existing systems, prior research etc.
 
 
 
-\section{System Overview}
-The system for the clarification model was constructed through a series of key components: \\User query, RASA for flow control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to verify the need for clarification. The dependencies and relationships of these components are illustrated below.
+\subsection{System Overview}
+The system for the clarification model was constructed through a series of key components:User queries with a question for the system, RASA for application control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to rank the best results. The dependencies and relationships of these components are illustrated below.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{System Diagram.drawio.svg}
-    \caption{Enter Caption}
-    \label{fig:enter-label}
+\begin{figure}[htbp]
+  \includegraphics[width= 0.25 \linewidth]{.Images/System Diagram.drawio.svg}
+  \caption{Enter Caption}
+  \label{fig:enter-label}
 \end{figure}
 
 \section{Qulac Dataset}
@@ -65,49 +62,63 @@ The Qulac data was one of the primary datasets for this system. One of the initi
 A dictionary with query keys and a list of relevant facet descriptions (user intents).
 
 \subsection{Clean Qulac Schema}
-\begin{longtable}{|l|l|p{8cm}|}
-\hline
-\textbf{Column Name} & \textbf{Type} & \textbf{Description} \\ \hline
-Index & String & Facet Index based on word string \\ \hline
-Category Name & String & Name of the Broader Category of the Dataset \\ \hline
-Facet Description & String & Facet Description \\ \hline
-Col 1 & String & Response 1 \\ \hline
-Col 2 & String & Response 2 \\ \hline
-Col 3 & String & Response 3 \\ \hline
-Col 4 & String & Response 4 \\ \hline
-New Index & Int & Index counter for every row in the table \\ \hline
-\end{longtable}
+\renewcommand{\arraystretch}{1.2} % increase row height for readability
+
+\begin{table}[ht]
+  \centering
+  \caption{Dataset Column Descriptions}
+  \label{tab:dataset-columns}
+  \begin{tabular}{@{} l l p{8cm} @{}}
+    \hline
+    \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                               \\ 
+    \hline
+    Index                 & String           & Facet index based on word string.                  \\ 
+    Category Name         & String           & Name of the broader category of the dataset.       \\ 
+    Facet Description     & String           & Detailed description of the facet.                 \\ 
+    Col 1                 & String           & Response 1.                                         \\ 
+    Col 2                 & String           & Response 2.                                         \\ 
+    Col 3                 & String           & Response 3.                                         \\ 
+    Col 4                 & String           & Response 4.                                         \\ 
+    New Index             & Integer          & Row index counter.                                 \\ 
+    \hline
+  \end{tabular}
+\end{table}
 
 One of the most important features of our Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries.
 
 \section{Wikipedia Summaries}
 The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per index \textendash{} topic of the facet \textendash{} relating to the user's query.
 
-% Insert Image Template
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Wiki.jpeg}
-    \caption{Wikipedia Summaries Generation}
-    \label{fig:wikipedia method}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.25 \textwidth]{Images/Wiki.jpg}
+  \caption{Wikipedia Summaries Generation}
+  \label{fig:wikipedia method}
 \end{figure}
 
 
 Once completed, the Wikipedia Summaries were shaped into the cleaned dataset above. These summaries were required for BM25 later in the project. In a larger project, the Wikipedia API could be used to return the entire articles, but this would come at a cost of time, compute, and complexity.
 
 
-\section{RASA}
+\subsection{{RASA})
 RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable models. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively.
 
-\section{Best Matching 25 (BM25)}
+\subsection{Best Matching 25 (BM25)}
 BM25 was the key AI model in matching user queries to the relevant Wikipedia summaries within the system. The model used was from Huggingface and constructed via a Python script. 
-
+ \newline
+ \newline
 The documents used were the Wikipedia Summaries from the generated CSV. The result was that the system determined the need for clarification based on a tolerance score of 0.40 for similarity. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
 
 
 \section{SBERT}
 The final step was determining the suitability of the top-ranked result. A specialized version of BERT called SBERT from Huggingface was utilized.
 
+ \newline
+ \newline
+
 Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query (tagged with \texttt{[Q]}) and the next element (a question and its answer tagged with \texttt{[A]}).
+ \newline
+ \newline
 
 The model applied a similarity score with a tolerance threshold of 0.4. If the context and question's similarity score was above 0.4, the result was deemed suitable; otherwise, it was not ranked.
 
