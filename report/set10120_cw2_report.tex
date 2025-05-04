@@ -57,7 +57,7 @@ The system for the clarification model was constructed through a series of key c
   \label{fig:sys_diag}
 \end{figure}
 
-\section{Qulac Dataset}
+\subsection{Qulac Dataset}
 The Qulac data was one of the primary datasets for this system. One of the initial steps was to appropriately shape the data to work with the other elements within our system. The transformations for cleaning this dataset were performed initially in Python using the Pandas library, and the resulting CSV was stored within a Google Drive directory.
 
 \subsection{Original Qulac Dataset}
@@ -72,23 +72,23 @@ A dictionary with query keys and a list of relevant facet descriptions (user int
   \label{tab:dataset-columns}
   \begin{tabular}{@{} l l p{5cm} @{}}
     \hline
-    \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                               \\ 
+    \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                        \\ 
     \hline
-    Index                 & String           & Facet index based on word string.                  \\ 
-    Category Name         & String           & Name of the broader category of the dataset.       \\ 
-    Facet Description     & String           & Detailed description of the facet.                 \\ 
-    Col 1                 & String           & Response 1.                                         \\ 
-    Col 2                 & String           & Response 2.                                         \\ 
-    Col 3                 & String           & Response 3.                                         \\ 
-    Col 4                 & String           & Response 4.                                         \\ 
-    New Index             & Integer          & Row index counter.                                 \\ 
+    Index                 & String           & Facet index based on word string.            \\ 
+    Category Name         & String           & Name of the broader category of the dataset. \\ 
+    Facet Description     & String           & Detailed description of the facet.           \\ 
+    Col 1                 & String           & Response 1.                                  \\ 
+    Col 2                 & String           & Response 2.                                  \\ 
+    Col 3                 & String           & Response 3.                                  \\ 
+    Col 4                 & String           & Response 4.                                  \\ 
+    New Index             & Integer          & Row index counter.                           \\ 
     \hline
   \end{tabular}
 \end{table}
 
 One of the most important features of our Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries.
 
-\section{Wikipedia Summaries}
+\subsection{Wikipedia Summaries}
 The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per index \textendash{} topic of the facet \textendash{} relating to the user's query.
 
 \begin{figure}[htbp]
@@ -112,7 +112,7 @@ BM25 was the key AI model in matching user queries to the relevant Wikipedia sum
 The documents used were the Wikipedia Summaries from the generated CSV. The result was that the system determined the need for clarification based on a tolerance score of 0.40 for similarity. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
 
 
-\section{SBERT}
+\subsection{SBERT}
 The final step was determining the suitability of the top-ranked result. A specialized version of BERT called SBERT from Huggingface was utilized.
 
 Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query (tagged with \texttt{[Q]}) and the next element (a question and its answer tagged with \texttt{[A]}).
