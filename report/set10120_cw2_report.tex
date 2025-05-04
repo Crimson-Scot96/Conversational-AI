@@ -126,7 +126,6 @@ The final step was determining the suitability of the top-ranked question. A spe
 
 Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query and the next element. The model would try to find a similarity between the two strings to rank the relevant results.
 
-The model applied a similarity score with a tolerance threshold of 0.4. If the context and question's similarity score was above 0.4, the result was deemed suitable; otherwise, it was not ranked.
 
 
 
