@@ -15,6 +15,8 @@
 
 \usepackage{graphicx}
 
+\usepackage{tabularx}
+
 \title{Asking Clarifying Questions for Conversational Search}
 
 \author{
@@ -109,7 +111,7 @@ The dataset includes annotations from human judges who rated each candidate ques
   \centering
   \caption{Transformed Qualac Dataset for BM25 and Wiki Summaries}
   \label{tab:dataset-columns}
-  \begin{tabular}{@{} l l p{5cm} @{}}
+  \begin{tabularx}{\columnwidth}{@{} l l X @{}}
     \hline
     \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                        \\ 
     \hline
@@ -122,10 +124,10 @@ The dataset includes annotations from human judges who rated each candidate ques
     Col 4                 & String           & Response 4.                                  \\ 
     New Index             & Integer          & Row index counter.                           \\ 
     \hline
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
-One of the most important features of the Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries. A facet is a clarifying intent subtopic to given a query and an facet description is a description of this subtopic. Let us take "Cat" as an example of a facet. In this scenario there are four potential facets for cats; the mammal - felius catus - , the musical  and the shoe brand. The facet description are important as they context to  derive from a readable form which of these facets are being used in a certain context. Hence they important for deriving the correct wikipedia summaries. 
+One of the most important features of the Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries. A facet is a clarifying intent subtopic to given a query and an facet description is a description of this subtopic. Let us take "Cat" as an example of a facet. In this scenario there are four potential facets for cats; the mammal - felius catus - , the musical  and the shoe brand. The facet description are important as they context to derive from a readable form which of these facets are being used in a certain context. Hence they important for deriving the correct wikipedia summaries. 
 
 \subsection{Wikipedia Summaries}
 The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per topic based on the facet descriptions \textendash{} relating to the user's query. In short, the facet descriptions were used within a search function as to return the most relevant results within a given context. The reason why five results where generated instead of all possible results was reduce the amount of noise in our dataset. Only the Wikipedia summaries where used to save on performance and time. In a larger and more extensive project, the entire Wikipedia summary should be generated. 
