@@ -49,26 +49,34 @@ Existing systems, prior research etc.
 
 
 \subsection{System Overview}
-The system for the clarification model was constructed through a series of key components:User queries with a question for the system, RASA for application control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to rank the best results. The dependencies and relationships of these components are illustrated below.
+The system for the clarification model was constructed through a series of key components:User queries with a question for the system, RASA for application control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to rank the most appropriate question.
+
+\newline
+
+The dependencies and relationships of these components are illustrated Figure 1.
 
 \begin{figure}[htbp]
   \includegraphics[width=\linewidth]{./img/system_diagram.png}
-  \caption{Enter Caption}
+  \caption{System Diagram for our Clarification project}
   \label{fig:sys_diag}
 \end{figure}
 
 \subsection{Qulac Dataset}
-The Qulac data was one of the primary datasets for this system. One of the initial steps was to appropriately shape the data to work with the other elements within our system. The transformations for cleaning this dataset were performed initially in Python using the Pandas library, and the resulting CSV was stored within a Google Drive directory.
+The Qulac - short for Questions for Lack of Clarity—is a benchmark dataset created to support research on asking clarifying questions in open-domain, information-seeking conversations and was one of the primary datasets for this system. One of the initial steps was to appropriately shape the data to work with the other elements within our system. The transformations for cleaning this dataset were performed initially in Python using the Pandas library, and the resulting CSV was stored within GitHub.
 
 \subsection{Original Qulac Dataset}
-A dictionary with query keys and a list of relevant facet descriptions (user intents).
+In short the Qulac dataset is a dictionary with query keys and a list of relevant facet descriptions (user intents).
+
+Each query in Qulac is paired with a set of ten candidate clarifying questions, which are designed to resolve potential ambiguity. For example, the query "jaguar" could relate to the animal, the car brand, or even the sports team, and Qulac includes questions such as “Are you referring to the animal or the car brand?” to help systems distinguish between these interpretations. These questions were manually authored and assessed through crowdsourcing to ensure relevance and effectiveness in eliciting more specific user intent. Queries are also accompanied by retrieved web passages from the ClueWeb09 Category B corpus, providing context for question evaluation.
+
+The dataset includes annotations from human judges who rated each candidate question based on its helpfulness, relevance, and clarity. The ratings fall into categories such as excellent, good, fair, or bad, offering a rich signal for training supervised learning models. These annotations allow for the creation of ranking systems that prioritize better clarifying questions over less helpful ones. The inclusion of such human judgments positions Qulac as a valuable dataset for evaluating both neural ranking models and question generation systems in the conversational IR domain.
 
 \subsection{Clean Qulac Schema}
 \renewcommand{\arraystretch}{1.2} % increase row height for readability
 
 \begin{table}[ht]
   \centering
-  \caption{Dataset Column Descriptions}
+  \caption{Transformed Qualac Dataset for BM25 and Wiki Summaries}
   \label{tab:dataset-columns}
   \begin{tabular}{@{} l l p{5cm} @{}}
     \hline
@@ -86,10 +94,10 @@ A dictionary with query keys and a list of relevant facet descriptions (user int
   \end{tabular}
 \end{table}
 
-One of the most important features of our Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries.
+One of the most important features of the Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries. A facet is a clarifying intent subtopic to given a query and an facet description is a description of this subtopic. Let us take "Cat" as an example of a facet. In this scenario there are four potential facets for cats; the mammal - felius catus - , the musical  and the shoe brand. The facet description are important as they context to  derive from a readable form which of these facets are being used in a certain context. Hence they important for deriving the correct wikipedia summaries. 
 
 \subsection{Wikipedia Summaries}
-The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per index \textendash{} topic of the facet \textendash{} relating to the user's query.
+The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per topic based on the facet descriptions \textendash{} relating to the user's query. In short, the facet descriptions were used within a search function as to return the most relevant results within a given context. The reason why five results where generated instead of all possible results was reduce the amount of noise in our dataset. Only the Wikipedia summaries where used to save on performance and time. In a larger and more extensive project, the entire Wikipedia summary should be generated. 
 
 \begin{figure}[htbp]
   \centering
@@ -98,29 +106,30 @@ The Wikipedia summaries were generated using a series of GET responses contained
   \label{fig:wikipedia method}
 \end{figure}
 
+In the figure - wikipedia method, a function is used to generate the results of our searches. The method was crafted in this way to ensure that it could retrieve data from the API at ease. If the project was larger in scope, the parameters and a couple of variables could be simply changed to gain the entire wikipedia article. 
 
 Once completed, the Wikipedia Summaries were shaped into the cleaned dataset above. These summaries were required for BM25 later in the project. In a larger project, the Wikipedia API could be used to return the entire articles, but this would come at a cost of time, compute, and complexity.
 
 
 \subsection{{RASA}}
-RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable models. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively.
+RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable modules. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively. 
 
 \subsection{Best Matching 25 (BM25)}
-BM25 was the key AI model in matching user queries to the relevant Wikipedia summaries within the system. The model used was from Huggingface and constructed via a Python script. 
+BM25 was a key ranking function used in the project for informational retrieval within the project. For the project, BM25 ranked the user queries to the relevant Wikipedia summaries giving them a ranking score. This function was imported from Huggingface via a python script. 
  \newline
  \newline
-The documents used were the Wikipedia Summaries from the generated CSV. The result was that the system determined the need for clarification based on a tolerance score of 0.40 for similarity. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
+The documents used were the Wikipedia Summaries from the generated CSV. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
 
 
 \subsection{SBERT}
-The final step was determining the suitability of the top-ranked result. A specialized version of BERT called SBERT from Huggingface was utilized.
+The final step was determining the suitability of the top-ranked question. A specialized version of BERT called SBERT from Huggingface was utilised.
 
-Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query (tagged with \texttt{[Q]}) and the next element (a question and its answer tagged with \texttt{[A]}).
+Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query and the next element. The model would try to find a similarity between the two strings to rank the relevant results.
 
 The model applied a similarity score with a tolerance threshold of 0.4. If the context and question's similarity score was above 0.4, the result was deemed suitable; otherwise, it was not ranked.
 
 
-\cite{Aliannejadi2019}
+
 
 \section{Evaluation}
 How did we check the system works.
