@@ -177,8 +177,33 @@ Possible improvements.
 start here.
 
 \section*{Limitations}
-Required by ACL format, and should be AFTER conclusion.
-Discuss honest limitations of the work.
+
+While our system has met the main project requirements, including asking clarifying questions during conversations, selecting clarifying questions, and evaluating a clarifying question-answering system, there are several limitations worth discussing:
+
+\begin{itemize}
+    \item \textbf{The selection of questions for clarification.} Our system uses curated questions from the Qulac dataset to train our data, which helps streamline report production and meet deadlines but does not fully replicate real-life scenarios.
+    
+    \item \textbf{The use of Wikipedia summaries.} This approach may not completely satisfy end-user requirements. Users might prefer the entire Wikipedia article or just a brief sentence instead of a summary. The project focused on identifying and asking clarifying questions rather than the output, hence considering it less critical to meet this potential requirement. Consuming summaries was also easier to manage in terms of data quantity and system performance. Using entire articles would have posed challenges in storage and computation.
+    
+    \item \textbf{Research.} Although research informed the project's construction, no new discoveries were made in the field, indicating a lack of significant innovation in implementing this type of system.
+\end{itemize}
+
+Despite these limitations, given the nature of the project, time constraints, and available technical expertise, this solution is likely the most optimal that could be achieved within the given timeframe.
+
+\section*{Future Work}
+
+In terms of future work, the primary objective should be to broaden the scope and foundation of the current project and address the issues identified in the limitations:
+
+\begin{itemize}
+    \item \textbf{Investigate and implement methods for generating clarifying questions for the system.} The current system has difficulty in clarifying many questions, and having a larger dataset of facets would improve its efficiency.
+    
+    \item \textbf{Replace the Wikipedia summaries with a system that directly responds to users' queries.} This would necessitate the implementation of Retrieval-Augmented Generation (RAG), which was omitted from this project due to time constraints and complexity.
+    
+    \item \textbf{Conduct significantly more extensive research into other systems.} Although research was conducted, the range of areas investigated was limited. Future studies should expand the scope of research for the project and incorporate any findings within the field.
+\end{itemize}
+
+For any future research to be successful, it will need to provide more optimal timelines and expertise to effectively implement the aforementioned points.
+
 
 \section*{Ethics Statement}
 This project developed a conversational search system for educational demonstrative purposes. All datasets used were publicly available and no personal, sensitive, or specific user data was collected or processed. As the system operates using predefined Wikipedia summaries and clarifying questions, the risk of harm to individuals or groups is minimal. 
