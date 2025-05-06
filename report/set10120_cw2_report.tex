@@ -111,7 +111,6 @@ The dataset includes annotations from human judges who rated each candidate ques
   \caption{Transformed Qualac Dataset for BM25 and Wiki Summaries}
   \label{tab:dataset-columns}
   \begin{tabularx}{\columnwidth}{@{} l l X @{}}
-    \hline
     \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                        \\ 
     \hline
     Index                 & String           & Facet index based on word string.            \\ 
@@ -122,7 +121,6 @@ The dataset includes annotations from human judges who rated each candidate ques
     Col 3                 & String           & Response 3.                                  \\ 
     Col 4                 & String           & Response 4.                                  \\ 
     New Index             & Integer          & Row index counter.                           \\ 
-    \hline
   \end{tabularx}
 \end{table}
 
@@ -138,7 +136,7 @@ The Wikipedia summaries were generated using a series of GET responses contained
   \label{fig:wikipedia method}
 \end{figure}
 
-In the figure - Wikipedia method, a function is used to generate the results of our searches. The method was crafted in this way to ensure that it could retrieve data from the API at ease. If the project was larger in scope, the parameters and a couple of variables could be simply changed to gain the entire wikipedia article. 
+Illustrated in \autoref{fig:wikipedia method}, a function is used to generate the results of our searches. The method was crafted in this way to ensure that it could retrieve data from the API at ease. If the project was larger in scope, the parameters and a couple of variables could be simply changed to gain the entire wikipedia article. 
 
 Once completed, the Wikipedia Summaries were shaped into the cleaned dataset above. These summaries were required for BM25 later in the project. In a larger project, the Wikipedia API could be used to return the entire articles, but this would come at a cost of time, compute, and complexity.
 
@@ -276,7 +274,6 @@ All the 75 ambiguous queries were passed through the trained SBERT model, and th
 \begin{table}[h]
   \centering
   \begin{tabular}{l r}
-  \hline
   \textbf{Metric} & \textbf{Results} \\
   \hline
   Total Queries & 75 \\
