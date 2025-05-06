@@ -142,7 +142,6 @@ In the figure - Wikipedia method, a function is used to generate the results of 
 
 Once completed, the Wikipedia Summaries were shaped into the cleaned dataset above. These summaries were required for BM25 later in the project. In a larger project, the Wikipedia API could be used to return the entire articles, but this would come at a cost of time, compute, and complexity.
 
-
 \subsection{{RASA}}
 RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable modules. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively. 
 
@@ -151,7 +150,6 @@ BM25 was a key ranking function used in the project for informational retrieval 
  \newline
  \newline
 The documents used were the Wikipedia Summaries from the generated CSV. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
-
 
 \subsection{SBERT}
 The final step was determining the suitability of the top-ranked question. A specialised version of BERT called SBERT from Huggingface was utilised.
@@ -188,6 +186,7 @@ The model used is a fine-tuned version of the all-MiniLM-L6-v2, it is a compact 
 
 The aim of the evaluation is measuring model's semantic understanding, confidence behaviour, and it's overall suitability for a real-time integration into a retrieval-based dialog system. The performance was measured primarily through cosine similarity scores and confidence thresholds to determine how well the model aligned clarifications to the query intent.
 Basically, the evaluation assesses whether the model can rank the best clarification for each query and also understand user intent, especially in ambiguous scenarios. A confidence threshold of 0.40 is defined on cosine similarity to judge the reliability of the model's top choice.
+
 
 \section{Results and Discussion}
 \subsection{BM25}
@@ -300,10 +299,18 @@ The clarification is more subjective and contextual unlike the summary retrieval
 
 
 \section{Conclusion}
-start here.
+Ultimately, this project successfully demonstrated a functional conversational search system that takes user queries as input, and outputs clarifying questions or satisfactory wiki summaries. By combining a retriever model (BM25) with a semantic reranker (all-MiniLM-L6-v2) to form a comprehensive summary retrieval pipeline, and a fine-tuned SBERT model for clarification questions, the system was able to deliver relevant responses or appropriate follow-up questions to the user. These interactions were handled through the Rasa dialogue manager, which acted as a middleman ensuring smooth conversational flow and intent management.
+
+Evaluation results showed that the retrieval pipeline achieved strong performance on matching queries (92\% accuracy, 95.56\% F1 score, and 0.9594 average semantic similarity). This confirmed its effectiveness in returning relevant summaries when sufficient information was provided. On ambiguous queries, the system produced confident predictions only 42\% of the time with a lower average similarity of 0.3584, thus demonstrating excellent uncertainty handling. For non-matching queries, the system was correctly cautious in 80\% of cases.
+
+The SBERT clarification handling also showed promising results, ranking the correct question with confidence 84\% of the time, with an average similarity of 0.563 across 75 queries of differing nature. It also showed its ability to give uncertainty (12 queries below the confidence threshold) which, supports expected behaviour in ambiguous contexts.
+
+A key component enabling the system's interactivity was the Rasa dialogue manager. Rasa handled user input, tracked conversation history, and coordinated the conversational flow between the user and the model seamlessly. Rasa helped the system mimic real conversational behaviour, therefore making it an apt tool for managing interactive search.
+
+Although limiting factors such as the size of the dataset sourced from the Qulac dataset, and the fixed set of clarifying questions constrained the system's general ability somewhat, the pipeline still proved effective within its scope.  Additionally, the SBERT model was only fine-tuned on a small subset of the data, which may have lessened its ability to generalise across rare query types. Fundamentally however, the system achieved its primary goal: to decide when clarification is needed and deliver either a relevant summary or an appropriate clarifying question. Within a lightweight framework, it demonstrated reliable performance and the potential for real-world applicability in conversational search.
+
 
 \section*{Limitations}
-
 While our system has met the main project requirements, including asking clarifying questions during conversations, selecting clarifying questions, and evaluating a clarifying question-answering system, there are several limitations worth discussing:
 
 \begin{itemize}
@@ -315,6 +322,7 @@ While our system has met the main project requirements, including asking clarify
 \end{itemize}
 
 Despite these limitations, given the nature of the project, time constraints, and available technical expertise, this solution is likely the most optimal that could be achieved within the given timeframe.
+
 
 \section*{Future Work}
 
@@ -333,6 +341,7 @@ For any future research to be successful, it will need to provide more optimal t
 
 \section*{Ethics Statement}
 This project developed a conversational search system for educational demonstrative purposes. All datasets used were publicly available and no personal, sensitive, or specific user data was collected or processed. As the system operates using predefined Wikipedia summaries and clarifying questions, the risk of harm to individuals or groups is minimal. 
+
 
 \bibliographystyle{acl_natbib}
 \bibliography{references}
