@@ -1,5 +1,3 @@
-\pdfoutput=1
-
 \documentclass[11pt]{article}
 
 \usepackage[]{ACL2023}
@@ -14,6 +12,10 @@
 \usepackage{microtype}
 
 \usepackage{inconsolata}
+
+\usepackage{graphicx}
+
+\usepackage{tabularx}
 
 \title{Asking Clarifying Questions for Conversational Search}
 
@@ -78,33 +80,211 @@ Whilst our system uses a fixed pool of pre-written clarifying questions, recent 
 Although we do not attempt question generation in our project, these studies helped our understanding of how clarification might be handled in more advanced systems beyond retrieval-based approaches. In particular, they highlight the importance of considering intent and context, and have provided a basis for designing our simpler ranking-based method.
 
 \section{Methodology}
-System architecture.
-What models/algorithms used.
-How are the questions generated.
-What inputs/outputs are there.
 
-\cite{Aliannejadi2019}
+
+
+\subsection{System Overview}
+The system for the clarification model was constructed through a series of key components:User queries with a question for the system, RASA for application control of the entire system, Best Matching 25 (BM25) model for matching the queries on the Wikipedia Dataset, and SBERT for constructing Sentence Similarity Scores to rank the most appropriate question.
+
+The dependencies and relationships of these components are illustrated Figure 1.
+
+\begin{figure}[htbp]
+  \includegraphics[width=\linewidth]{./img/system_diagram.png}
+  \caption{System Diagram for our Clarification project}
+  \label{fig:sys_diag}
+\end{figure}
+
+\subsection{Qulac Dataset}
+The Qulac - short for Questions for Lack of Clarity—is a benchmark dataset created to support research on asking clarifying questions in open-domain, information-seeking conversations and was one of the primary datasets for this system. One of the initial steps was to appropriately shape the data to work with the other elements within our system. The transformations for cleaning this dataset were performed initially in Python using the Pandas library, and the resulting CSV was stored within GitHub.
+
+\subsection{Original Qulac Dataset}
+In short the Qulac dataset is a dictionary with query keys and a list of relevant facet descriptions (user intents).
+
+Each query in Qulac is paired with a set of ten candidate clarifying questions, which are designed to resolve potential ambiguity. For example, the query "jaguar" could relate to the animal, the car brand, or even the sports team, and Qulac includes questions such as “Are you referring to the animal or the car brand?” to help systems distinguish between these interpretations. These questions were manually authored and assessed through crowdsourcing to ensure relevance and effectiveness in eliciting more specific user intent. Queries are also accompanied by retrieved web passages from the ClueWeb09 Category B corpus, providing context for question evaluation.
+
+The dataset includes annotations from human judges who rated each candidate question based on its helpfulness, relevance, and clarity. The ratings fall into categories such as excellent, good, fair, or bad, offering a rich signal for training supervised learning models. These annotations allow for the creation of ranking systems that prioritize better clarifying questions over less helpful ones. The inclusion of such human judgments positions Qulac as a valuable dataset for evaluating both neural ranking models and question generation systems in the conversational IR domain.
+
+\subsection{Clean Qulac Schema}
+\renewcommand{\arraystretch}{1.2} % increase row height for readability
+
+\begin{table}[ht]
+  \centering
+  \caption{Transformed Qualac Dataset for BM25 and Wiki Summaries}
+  \label{tab:dataset-columns}
+  \begin{tabularx}{\columnwidth}{@{} l l X @{}}
+    \hline
+    \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                        \\ 
+    \hline
+    Index                 & String           & Facet index based on word string.            \\ 
+    Category Name         & String           & Name of the broader category of the dataset. \\ 
+    Facet Description     & String           & Detailed description of the facet.           \\ 
+    Col 1                 & String           & Response 1.                                  \\ 
+    Col 2                 & String           & Response 2.                                  \\ 
+    Col 3                 & String           & Response 3.                                  \\ 
+    Col 4                 & String           & Response 4.                                  \\ 
+    New Index             & Integer          & Row index counter.                           \\ 
+    \hline
+  \end{tabularx}
+\end{table}
+
+One of the most important features of the Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries. A facet is a clarifying intent subtopic to given a query. Let us take "Cat" as an example of a facet. In this scenario there are four potential facets for cats; the mammal - felius catus - , the musical  and the shoe brand. The facet description are important as they give meaning and context when searching for the correct wikipedia. Hence they important for deriving the correct wikipedia summaries. 
+
+\subsection{Wikipedia Summaries}
+The Wikipedia summaries were generated using a series of GET responses contained within a Python script on the Wikipedia API. The aim was to generate five summaries per topic based on the facet descriptions \textendash{} relating to the user's query. In short, the facet descriptions were used within a search function as to return the most relevant results within a given context. The reason why five results where generated instead of all possible results was to reduce the amount of noise in our dataset. Only the Wikipedia summaries where used to save on performance and time. In a larger and more extensive project, the entire Wikipedia summary should be generated. 
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{./img/wiki.png}
+  \caption{Wikipedia Summaries Generation}
+  \label{fig:wikipedia method}
+\end{figure}
+
+In the figure - Wikipedia method, a function is used to generate the results of our searches. The method was crafted in this way to ensure that it could retrieve data from the API at ease. If the project was larger in scope, the parameters and a couple of variables could be simply changed to gain the entire wikipedia article. 
+
+Once completed, the Wikipedia Summaries were shaped into the cleaned dataset above. These summaries were required for BM25 later in the project. In a larger project, the Wikipedia API could be used to return the entire articles, but this would come at a cost of time, compute, and complexity.
+
+
+\subsection{{RASA}}
+RASA is the machine learning framework used for building this system. It is used to manage the dialogue by deploying the suitable modules. For this project, RASA deploys BM25 and SBERT, allowing the system to function cohesively. 
+
+\subsection{Best Matching 25 (BM25)}
+BM25 was a key ranking function used in the project for informational retrieval within the project. For the project, BM25 ranked the user queries to the relevant Wikipedia summaries giving them a ranking score. This function was imported from Huggingface via a python script. 
+ \newline
+ \newline
+The documents used were the Wikipedia Summaries from the generated CSV. A ranking was also performed using all-MiniLM-L6-v2 from HuggingFace to select the best matching summary.
+
+
+\subsection{SBERT}
+The final step was determining the suitability of the top-ranked question. A specialised version of BERT called SBERT from Huggingface was utilised.
+
+Our SBERT model was fine-tuned on \texttt{sbert\_training\_data.csv}, which contained two features: context and question. Each context is a formatted string combining the initial query and the next element. The model would try to find a similarity between the two strings to rank the relevant results.
+
+
+
+
 
 \section{Evaluation}
-How did we check the system works.
-Describe testing process.
+To understand the effectiveness and behaviour of the BM25 and all-MiniLM-L6-v2 retrieval pipeline, a three-part evaluation was designed. 150 queries were generated using GPT-4 (reference) to test on the model and produce statistics on its performance. These queries were split into the following three categories:
+1. Matching queries - 50 queries based on content that appears in the dataset, each paired with a “ground truth” summary. The ground truths were the summaries that best answered the queries according to GPT-4 \cite{OpenAI2025}. For example: “What is The North Island brown kiwi?”
+2. Non-matching queries - 50 queries that had nothing to do with the dataset. These did not feature ground truth, as they were designed to lack a satisfying answer in the partition of the Qulac dataset used in the pipeline \cite{Aliannejadi2021}. For example, “Who won the first season of The Voice?”
+3. Ambiguous queries - 50 queries that were generalisations of topics related to summaries in the dataset but not directly answerable easily. For example, “Tell me about famous political figures.”
+All queries were run through the full BM25 and all-MiniLM-L6-v2 pipeline \cite{Brown2022,Tomaarsen2025a}. In the case of the 50 matching queries, the summary chosen by the pipeline was compared against the ground-truth using semantic similarity with \texttt{util.cos\_sim} \cite{Tomaarsen2025b}. If the similarity between the model's summary and the ground truth summary was greater than or equal to 0.7, the retrieval was considered successful. This allowed for instances where there were two or more suitable summaries available in the dataset for a given query. Additionally, classification metrics were computed. Confident predictions were treated as positive predictions, and semantic matches defined correctness.
 
 \section{Results and Discussion}
-Sample outputs.
-Summary of system behaviour.
-What worked well, what didn't?
-Possible improvements.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{lr}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Accuracy & 92.00\% \\
+    Precision & 100.00\% \\
+    Recall & 91.49\% \\
+    F1 Score & 95.56\% \\
+    Avg. cosine sim. & 0.5882 \\
+    Avg. semantic sim. & 0.9594 \\
+  \end{tabular}
+  \caption{Performance metrics for matching queries.}
+  \label{tab:matching-metrics}
+\end{table}
+
+The results shown in \autoref{tab:matching-metrics} indicate strong metrics across the board, particularly in precision, meaning the system was never confidently wrong. However, it occasionally failed to respond confidently even when it should have as seen by the slightly lower recall. This suggests the pipeline was cautious yet reliable.
+To comment on the logic used to compute these statistics, the definitions illustrated in \autoref{tab:classification-definitions} were coded into the evaluation script.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{p{0.50\linewidth}p{0.38\linewidth}}
+    \textbf{Behaviour} & \textbf{Term} \\
+    \hline
+    Confident, sim. $\geq$ 0.7 & True Positive (TP) \\
+    Confident, sim. $<$ 0.7 & False Positive (FP) \\
+    Not confident, sim. $\geq$ 0.7 & False Neg. (FN) \\
+    Not confident, sim. $<$ 0.7 & True Neg. (TN) \\
+  \end{tabular}
+  \caption{Classification definitions.}
+  \label{tab:classification-definitions}
+\end{table}
+
+To calculate the evaluation metrics, the code presented in \autoref{fig:eval-metrics-code} was used.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{img/eval_metrics_code.png}
+  \caption{Evaluation metrics calculation code.}
+  \label{fig:eval-metrics-code}
+\end{figure}
+
+It should be noted that True Negatives were set to 0 as every query had a correct associated answer, meaning that there could be no True Negatives for the matching queries. 
+
+As for the ambiguous queries, the results shown in \autoref{tab:ambiguous-query-results} were produced.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{l r}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Confident predictions & 42\% \\
+    Avg. cosine similarity & 0.3584 \\
+  \end{tabular}
+  \caption{Ambiguous query results.}
+  \label{tab:ambiguous-query-results}
+\end{table}
+
+In this case, the model was appropriately hesitant. The low average demonstrates that even when the pipeline attempted an answer (which happened 42\% of the time), the fit was often poor (0.3584 average cosine similarity), which supports the system's ability to avoid overconfident guessing where the model is not sure. 
+
+As for the non-matching queries, the metrics seen in \autoref{tab:nonmatching-metrics} were calculated.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{l r}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Correctly cautious (not confident) & 80\% \\
+    False positives (wrongly confident) & 20\% \\
+    Avg. cosine similarity & 0.2839 \\
+  \end{tabular}
+  \caption{Metrics for non-matching queries.}
+  \label{tab:nonmatching-metrics}
+\end{table}
+
+This indicates the system could not answer 80\% of irrelevant queries, which is desirable when compared to matching and ambiguous queries. However, the 20\% false positive rate means the system attempted to answer one in five queries, even when no relevant summaries existed. This is disappointing, but relatively fine compared to the confidence scores from the other query groups (92\% and 42\% respectively).
+
+Ultimately, the evaluation of the retrieval pipeline was robust, and highlighted the success of the model. However, it was not possible to implement Precision, Recall, and F-1 scores for the ambiguous and non-matching query groups, as ground truths were impossible to even synthetically produce due to the nature of the groups. Ideally, comparing the model's results against the results of a perfect model would be the best evaluation method, but the task is to subjective to expect perfection from any pipeline. The drops in accuracy and cosine similarity as the model transitioned from matching, to ambiguous, to non-matching do represent a solid evaluation architecture though, and suggest the pipeline performance was more than capable of performing summary retrieval where fit for any given query.
 
 \section{Conclusion}
 start here.
 
 \section*{Limitations}
-Required by ACL format, and should be AFTER conclusion.
-Discuss honest limitations of the work.
+
+While our system has met the main project requirements, including asking clarifying questions during conversations, selecting clarifying questions, and evaluating a clarifying question-answering system, there are several limitations worth discussing:
+
+\begin{itemize}
+    \item \textbf{The selection of questions for clarification.} Our system uses curated questions from the Qulac dataset to train our data, which helps streamline report production and meet deadlines but does not fully replicate real-life scenarios.
+    
+    \item \textbf{The use of Wikipedia summaries.} This approach may not completely satisfy end-user requirements. Users might prefer the entire Wikipedia article or just a brief sentence instead of a summary. The project focused on identifying and asking clarifying questions rather than the output, hence considering it less critical to meet this potential requirement. Consuming summaries was also easier to manage in terms of data quantity and system performance. Using entire articles would have posed challenges in storage and computation.
+    
+    \item \textbf{Research.} Although research informed the project's construction, no new discoveries were made in the field, indicating a lack of significant innovation in implementing this type of system.
+\end{itemize}
+
+Despite these limitations, given the nature of the project, time constraints, and available technical expertise, this solution is likely the most optimal that could be achieved within the given timeframe.
+
+\section*{Future Work}
+
+In terms of future work, the primary objective should be to broaden the scope and foundation of the current project and address the issues identified in the limitations:
+
+\begin{itemize}
+    \item \textbf{Investigate and implement methods for generating clarifying questions for the system.} The current system has difficulty in clarifying many questions, and having a larger dataset of facets would improve its efficiency.
+    
+    \item \textbf{Replace the Wikipedia summaries with a system that directly responds to users' queries.} This would necessitate the implementation of Retrieval-Augmented Generation (RAG), which was omitted from this project due to time constraints and complexity.
+    
+    \item \textbf{Conduct significantly more extensive research into other systems.} Although research was conducted, the range of areas investigated was limited. Future studies should expand the scope of research for the project and incorporate any findings within the field.
+\end{itemize}
+
+For any future research to be successful, it will need to provide more optimal timelines and expertise to effectively implement the aforementioned points.
+
 
 \section*{Ethics Statement}
-Required by ACL format. Could just be a sentence or two.
-Explicit ethics statement on the broader impact of the work, or other ethical considerations.
+This project developed a conversational search system for educational demonstrative purposes. All datasets used were publicly available and no personal, sensitive, or specific user data was collected or processed. As the system operates using predefined Wikipedia summaries and clarifying questions, the risk of harm to individuals or groups is minimal. 
 
 \bibliographystyle{acl_natbib}
 \bibliography{references}
