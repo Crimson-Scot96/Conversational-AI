@@ -15,6 +15,10 @@
 
 \usepackage{inconsolata}
 
+\usepackage{graphicx}
+
+\usepackage{tabularx}
+
 \title{Asking Clarifying Questions for Conversational Search}
 
 \author{
@@ -93,10 +97,85 @@ To understand the effectiveness and behaviour of the BM25 and all-MiniLM-L6-v2 r
 All queries were run through the full BM25 and all-MiniLM-L6-v2 pipeline \cite{Brown2022,Tomaarsen2025a}. In the case of the 50 matching queries, the summary chosen by the pipeline was compared against the ground-truth using semantic similarity with \texttt{util.cos\_sim} \cite{Tomaarsen2025b}. If the similarity between the model's summary and the ground truth summary was greater than or equal to 0.7, the retrieval was considered successful. This allowed for instances where there were two or more suitable summaries available in the dataset for a given query. Additionally, classification metrics were computed. Confident predictions were treated as positive predictions, and semantic matches defined correctness.
 
 \section{Results and Discussion}
-Sample outputs.
-Summary of system behaviour.
-What worked well, what didn't?
-Possible improvements.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{lr}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Accuracy & 92.00\% \\
+    Precision & 100.00\% \\
+    Recall & 91.49\% \\
+    F1 Score & 95.56\% \\
+    Avg. cosine sim. & 0.5882 \\
+    Avg. semantic sim. & 0.9594 \\
+  \end{tabular}
+  \caption{Performance metrics for matching queries.}
+  \label{tab:matching-metrics}
+\end{table}
+
+The results shown in \autoref{tab:matching-metrics} indicate strong metrics across the board, particularly in precision, meaning the system was never confidently wrong. However, it occasionally failed to respond confidently even when it should have as seen by the slightly lower recall. This suggests the pipeline was cautious yet reliable.
+To comment on the logic used to compute these statistics, the definitions illustrated in \autoref{tab:classification-definitions} were coded into the evaluation script.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{p{0.50\linewidth}p{0.38\linewidth}}
+    \textbf{Behaviour} & \textbf{Term} \\
+    \hline
+    Confident, sim. $\geq$ 0.7 & True Positive (TP) \\
+    Confident, sim. $<$ 0.7 & False Positive (FP) \\
+    Not confident, sim. $\geq$ 0.7 & False Neg. (FN) \\
+    Not confident, sim. $<$ 0.7 & True Neg. (TN) \\
+  \end{tabular}
+  \caption{Classification definitions.}
+  \label{tab:classification-definitions}
+\end{table}
+
+To calculate the evaluation metrics, the code presented in \autoref{fig:eval-metrics-code} was used.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{img/eval_metrics_code.png}
+  \caption{Evaluation metrics calculation code.}
+  \label{fig:eval-metrics-code}
+\end{figure}
+
+It should be noted that True Negatives were set to 0 as every query had a correct associated answer, meaning that there could be no True Negatives for the matching queries. 
+
+As for the ambiguous queries, the results shown in \autoref{tab:ambiguous-query-results} were produced.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{l r}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Confident predictions & 42\% \\
+    Avg. cosine similarity & 0.3584 \\
+  \end{tabular}
+  \caption{Ambiguous query results.}
+  \label{tab:ambiguous-query-results}
+\end{table}
+
+In this case, the model was appropriately hesitant. The low average demonstrates that even when the pipeline attempted an answer (which happened 42\% of the time), the fit was often poor (0.3584 average cosine similarity), which supports the system's ability to avoid overconfident guessing where the model is not sure. 
+
+As for the non-matching queries, the metrics seen in \autoref{tab:nonmatching-metrics} were calculated.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{l r}
+    \textbf{Metric} & \textbf{Value} \\
+    \hline
+    Correctly cautious (not confident) & 80\% \\
+    False positives (wrongly confident) & 20\% \\
+    Avg. cosine similarity & 0.2839 \\
+  \end{tabular}
+  \caption{Metrics for non-matching queries.}
+  \label{tab:nonmatching-metrics}
+\end{table}
+
+This indicates the system could not answer 80\% of irrelevant queries, which is desirable when compared to matching and ambiguous queries. However, the 20\% false positive rate means the system attempted to answer one in five queries, even when no relevant summaries existed. This is disappointing, but relatively fine compared to the confidence scores from the other query groups (92\% and 42\% respectively).
+
+Ultimately, the evaluation of the retrieval pipeline was robust, and highlighted the success of the model. However, it was not possible to implement Precision, Recall, and F-1 scores for the ambiguous and non-matching query groups, as ground truths were impossible to even synthetically produce due to the nature of the groups. Ideally, comparing the model's results against the results of a perfect model would be the best evaluation method, but the task is to subjective to expect perfection from any pipeline. The drops in accuracy and cosine similarity as the model transitioned from matching, to ambiguous, to non-matching do represent a solid evaluation architecture though, and suggest the pipeline performance was more than capable of performing summary retrieval where fit for any given query.
 
 \section{Conclusion}
 start here.
