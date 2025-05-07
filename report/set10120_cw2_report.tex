@@ -110,26 +110,6 @@ Each query in Qulac is paired with a set of ten candidate clarifying questions, 
 The dataset includes annotations from human judges who rated each candidate question based on its helpfulness, relevance, and clarity. The ratings fall into categories such as excellent, good, fair, or bad, offering a rich signal for training supervised learning models. These annotations allow for the creation of ranking systems that prioritize better clarifying questions over less helpful ones. The inclusion of such human judgments positions Qulac as a valuable dataset for evaluating both neural ranking models and question generation systems in the conversational IR domain.
 
 \subsection{Clean Qulac Schema}
-\renewcommand{\arraystretch}{1.2} % increase row height for readability
-
-\begin{table}[ht]
-  \centering
-  \caption{Transformed Qualac Dataset for BM25 and Wiki Summaries}
-  \label{tab:dataset-columns}
-  \begin{tabularx}{\columnwidth}{@{} l l X @{}}
-    \textbf{Column Name}  & \textbf{Type}    & \textbf{Description}                        \\ 
-    \hline
-    Index                 & String           & Facet index based on word string.            \\ 
-    Category Name         & String           & Name of the broader category of the dataset. \\ 
-    Facet Description     & String           & Detailed description of the facet.           \\ 
-    Col 1                 & String           & Response 1.                                  \\ 
-    Col 2                 & String           & Response 2.                                  \\ 
-    Col 3                 & String           & Response 3.                                  \\ 
-    Col 4                 & String           & Response 4.                                  \\ 
-    New Index             & Integer          & Row index counter.                           \\ 
-  \end{tabularx}
-\end{table}
-
 One of the most important features of the Qulac Dataset was the facet descriptions, as they were used to derive the Wikipedia Summaries. A facet is a clarifying intent subtopic to given a query. Let us take "Cat" as an example of a facet. In this scenario there are four potential facets for cats; the mammal - felius catus - , the musical  and the shoe brand. The facet description are important as they give meaning and context when searching for the correct wikipedia. Hence they important for deriving the correct wikipedia summaries. 
 
 \subsection{Wikipedia Summaries}
@@ -169,9 +149,9 @@ Overall, Rasa's intent recognition process combines machine learning and NLP to 
 \subsection{BM25}
 To understand the effectiveness and behaviour of the BM25 and all-MiniLM-L6-v2 retrieval pipeline, a three-part evaluation was designed. 150 queries were generated using GPT-4 (reference) to test on the model and produce statistics on its performance. These queries were split into the following three categories:
 \begin{enumerate}
-\item Matching queries - 50 queries based on content that appears in the dataset, each paired with a “ground truth” summary. The ground truths were the summaries that best answered the queries according to GPT-4 \cite{OpenAI2025}. For example: “What is The North Island brown kiwi?”
-\item Non-matching queries - 50 queries that had nothing to do with the dataset. These did not feature ground truth, as they were designed to lack a satisfying answer in the partition of the Qulac dataset used in the pipeline \cite{Aliannejadi2021}. For example, “Who won the first season of The Voice?”
-\item Ambiguous queries - 50 queries that were generalisations of topics related to summaries in the dataset but not directly answerable easily. For example, “Tell me about famous political figures.”
+\item Matching queries - 50 queries based on content that appears in the dataset, each paired with a “ground truth” summary. The ground truths were the summaries that best answered the queries according to GPT-4 \cite{OpenAI2025}.
+\item Non-matching queries - 50 queries that had nothing to do with the dataset. These did not feature ground truth, as they were designed to lack a satisfying answer in the partition of the Qulac dataset used in the pipeline \cite{Aliannejadi2021}.
+\item Ambiguous queries - 50 queries that were generalisations of topics related to summaries in the dataset but not directly answerable easily.
 \end{enumerate}
 
 All queries were run through the full BM25 and all-MiniLM-L6-v2 pipeline \cite{Brown2022,Tomaarsen2025a}. In the case of the 50 matching queries, the summary chosen by the pipeline was compared against the ground-truth using semantic similarity with \texttt{util.cos\_sim} \cite{Tomaarsen2025b}. If the similarity between the model's summary and the ground truth summary was greater than or equal to 0.7, the retrieval was considered successful. This allowed for instances where there were two or more suitable summaries available in the dataset for a given query. Additionally, classification metrics were computed. Confident predictions were treated as positive predictions, and semantic matches defined correctness.
@@ -205,32 +185,8 @@ Basically, the evaluation assesses whether the model can rank the best clarifica
 \end{table}
 
 The results shown in \autoref{tab:matching-metrics} indicate strong metrics across the board, particularly in precision, meaning the system was never confidently wrong. However, it occasionally failed to respond confidently even when it should have as seen by the slightly lower recall. This suggests the pipeline was cautious yet reliable.
-To comment on the logic used to compute these statistics, the definitions illustrated in \autoref{tab:classification-definitions} were coded into the evaluation script.
 
-\begin{table}[t]
-  \centering
-  \begin{tabular}{p{0.50\linewidth}p{0.38\linewidth}}
-    \textbf{Behaviour} & \textbf{Term} \\
-    \hline
-    Confident, sim. $\geq$ 0.7 & True Positive (TP) \\
-    Confident, sim. $<$ 0.7 & False Positive (FP) \\
-    Not confident, sim. $\geq$ 0.7 & False Neg. (FN) \\
-    Not confident, sim. $<$ 0.7 & True Neg. (TN) \\
-  \end{tabular}
-  \caption{Classification definitions.}
-  \label{tab:classification-definitions}
-\end{table}
-
-To calculate the evaluation metrics, the code presented in \autoref{fig:eval-metrics-code} was used.
-
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{img/eval_metrics_code.png}
-  \caption{Evaluation metrics calculation code.}
-  \label{fig:eval-metrics-code}
-\end{figure}
-
-It should be noted that True Negatives were set to 0 as every query had a correct associated answer, meaning that there could be no True Negatives for the matching queries. 
+To calculate the evaluation metrics, confusion measures (TP,FP and FN) were calculated based on confidence, similarity and a similarity threshold of 0.7. It should be noted that True Negatives were set to 0 as every query had a correct associated answer, meaning that there could be no True Negatives for the matching queries. 
 
 As for the ambiguous queries, the results shown in \autoref{tab:ambiguous-query-results} were produced.
 
@@ -306,15 +262,13 @@ A key component enabling the system's interactivity was the Rasa dialogue manage
 Although limiting factors such as the size of the dataset sourced from the Qulac dataset, and the fixed set of clarifying questions constrained the system's general ability somewhat, the pipeline still proved effective within its scope.  Additionally, the SBERT model was only fine-tuned on a small subset of the data, which may have lessened its ability to generalise across rare query types. Fundamentally however, the system achieved its primary goal: to decide when clarification is needed and deliver either a relevant summary or an appropriate clarifying question. Within a lightweight framework, it demonstrated reliable performance and the potential for real-world applicability in conversational search.
 
 \subsection{Future Work}
-In terms of future work, the primary objective should be to broaden the scope and foundation of the current project and address the issues identified in the limitations:
+In terms of future work, the primary objective should be to broaden the scope and foundation of the current project and address the issues identified in the limitations.
 
-\begin{itemize}
-    \item \textbf{Investigate and implement methods for generating clarifying questions for the system.} The current system has difficulty in clarifying many questions, and having a larger dataset of facets would improve its efficiency.
-    
-    \item \textbf{Replace the Wikipedia summaries with a system that directly responds to users' queries.} This would necessitate the implementation of Retrieval-Augmented Generation (RAG), which was omitted from this project due to time constraints and complexity.
-    
-    \item \textbf{Conduct significantly more extensive research into other systems.} Although research was conducted, the range of areas investigated was limited. Future studies should expand the scope of research for the project and incorporate any findings within the field.
-\end{itemize}
+\textbf{Investigate and implement methods for generating clarifying questions for the system.} The current system has difficulty in clarifying many questions, and having a larger dataset of facets would improve its efficiency.
+
+\textbf{Replace the Wikipedia summaries with a system that directly responds to users' queries.} This would necessitate the implementation of Retrieval-Augmented Generation (RAG), which was omitted from this project due to time constraints and complexity.
+
+\textbf{Conduct significantly more extensive research into other systems.} Although research was conducted, the range of areas investigated was limited. Future studies should expand the scope of research for the project and incorporate any findings within the field.
 
 For any future research to be successful, it will need to provide more optimal timelines and expertise to effectively implement the aforementioned points.
 
@@ -322,13 +276,11 @@ For any future research to be successful, it will need to provide more optimal t
 \section*{Limitations}
 While our system has met the main project requirements, including asking clarifying questions during conversations, selecting clarifying questions, and evaluating a clarifying question-answering system, there are several limitations worth discussing:
 
-\begin{itemize}
-    \item \textbf{The selection of questions for clarification.} Our system uses curated questions from the Qulac dataset to train our data, which helps streamline report production and meet deadlines but does not fully replicate real-life scenarios.
+\textbf{The selection of questions for clarification.} Our system uses curated questions from the Qulac dataset to train our data, which helps streamline report production and meet deadlines but does not fully replicate real-life scenarios.
     
-    \item \textbf{The use of Wikipedia summaries.} This approach may not completely satisfy end-user requirements. Users might prefer the entire Wikipedia article or just a brief sentence instead of a summary. The project focused on identifying and asking clarifying questions rather than the output, hence considering it less critical to meet this potential requirement. Consuming summaries was also easier to manage in terms of data quantity and system performance. Using entire articles would have posed challenges in storage and computation.
+\textbf{The use of Wikipedia summaries.} This approach may not completely satisfy end-user requirements. Users might prefer the entire Wikipedia article or just a brief sentence instead of a summary. The project focused on identifying and asking clarifying questions rather than the output, hence considering it less critical to meet this potential requirement. Consuming summaries was also easier to manage in terms of data quantity and system performance. Using entire articles would have posed challenges in storage and computation.
     
-    \item \textbf{Research.} Although research informed the project's construction, no new discoveries were made in the field, indicating a lack of significant innovation in implementing this type of system.
-\end{itemize}
+\textbf{Research.} Although research informed the project's construction, no new discoveries were made in the field, indicating a lack of significant innovation in implementing this type of system.
 
 Despite these limitations, given the nature of the project, time constraints, and available technical expertise, this solution is likely the most optimal that could be achieved within the given timeframe.
 
