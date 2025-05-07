@@ -1,0 +1,72 @@
+\begin{thebibliography}{16}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Aliannejadi(2021)}]{Aliannejadi2021}
+Mohammad Aliannejadi. 2021.
+\newblock \href {https://github.com/aliannejadi/qulac} {Qulac}.
+
+\bibitem[{Aliannejadi et~al.(2019)Aliannejadi, Zamani, Crestani, and Croft}]{Aliannejadi2019}
+Mohammad Aliannejadi, Hamed Zamani, Fabio Crestani, and W.~Bruce Croft. 2019.
+\newblock \href {https://doi.org/10.1145/3331184.3331265} {Asking clarifying questions in open-domain information-seeking conversations}.
+\newblock In \emph{Proceedings of the 42nd International ACM SIGIR Conference on Research and Development in Information Retrieval}, pages 475--484. ACM.
+
+\bibitem[{Brown et~al.(2022)Brown, Jain, Novotný, and nlp4whp}]{Brown2022}
+Dorian Brown, Sarthak Jain, Vít Novotný, and nlp4whp. 2022.
+\newblock \href {https://zenodo.org/records/6106156} {rank bm25}.
+
+\bibitem[{Dinesh et~al.(2021)Dinesh, R, Newton, and R}]{Dinesh2021}
+Tanya Dinesh, Anala~M R, T.~Terry Newton, and Smitha~G R. 2021.
+\newblock \href {https://doi.org/10.1109/ICSES52305.2021.9633799} {Ai bot for academic schedules using rasa}.
+\newblock In \emph{2021 International Conference on Innovative Computing, Intelligent Communication and Smart Electrical Systems (ICSES)}, pages 1--6. IEEE.
+
+\bibitem[{Ni et~al.(2021)Ni, Ábrego, Constant, Ma, Hall, Cer, and Yang}]{Ni2021}
+Jianmo Ni, Gustavo~Hernández Ábrego, Noah Constant, Ji~Ma, Keith~B. Hall, Daniel Cer, and Yinfei Yang. 2021.
+\newblock \href {https://doi.org/10.48550/arXiv.2108.08877} {Sentence-t5: Scalable sentence encoders from pre-trained text-to-text models}.
+
+\bibitem[{OpenAI(2025)}]{OpenAI2025}
+OpenAI. 2025.
+\newblock \href {https://openai.com/index/gpt-4-research/} {Gpt-4}.
+
+\bibitem[{Rasa(2025)}]{Rasa2025}
+Rasa. 2025.
+\newblock \href {https://rasa.com/docs/} {Welcome to the rasa docs}.
+
+\bibitem[{Reimers and Gurevych(2019)}]{Reimers2019}
+Nils Reimers and Iryna Gurevych. 2019.
+\newblock \href {https://doi.org/10.48550/arXiv.1908.10084} {Sentence-bert: Sentence embeddings using siamese bert-networks}.
+
+\bibitem[{Salle et~al.(2022)Salle, Malmasi, Rokhlenko, and Agichtein}]{Salle2022}
+Alexandre Salle, Shervin Malmasi, Oleg Rokhlenko, and Eugene Agichtein. 2022.
+\newblock \href {https://doi.org/10.1007/s10791-022-09404-z} {Cosearcher: studying the effectiveness of conversational search refinement and clarification through user simulation}.
+
+\bibitem[{Team(2022)}]{XaqtTeam2022}
+Xaqt Team. 2022.
+\newblock \href {https://www.xaqt.com/blog/an-overview-and-introduction-to-rasa/} {Introduction to rasa}.
+
+\bibitem[{Tomaarsen(2025{\natexlab{a}})}]{Tomaarsen2025a}
+Tomaarsen. 2025{\natexlab{a}}.
+\newblock \href {https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2} {all-minilm-l6-v2}.
+
+\bibitem[{Tomaarsen(2025{\natexlab{b}})}]{Tomaarsen2025c}
+Tomaarsen. 2025{\natexlab{b}}.
+\newblock \href {https://www.sbert.net/docs/package_reference/sentence_transformer/losses.html#multiplenegativesrankingloss} {Multiplenegativesrankingloss}.
+
+\bibitem[{Tomaarsen(2025{\natexlab{c}})}]{Tomaarsen2025b}
+Tomaarsen. 2025{\natexlab{c}}.
+\newblock \href {https://sbert.net/docs/package_reference/util.html} {util -- sentence transformers documentation}.
+
+\bibitem[{Wang and Ai(2022)}]{Wang2022}
+Zhenduo Wang and Qingyao Ai. 2022.
+\newblock \href {https://doi.org/10.1145/3507357} {Simulating and modeling the risk of conversational search}.
+\newblock \emph{ACM Transactions on Information Systems}, 40:1--33.
+
+\bibitem[{Wang et~al.(2023)Wang, Tu, Rosset, Craswell, Wu, and Ai}]{Wang2023}
+Zhenduo Wang, Yuancheng Tu, Corby Rosset, Nick Craswell, Ming Wu, and Qingyao Ai. 2023.
+\newblock \href {https://doi.org/10.48550/arXiv.2301.12660} {Zero-shot clarifying question generation for conversational search}.
+
+\bibitem[{Zhao et~al.(2024)Zhao, Dou, and Zhou}]{Zhao2024}
+Ziliang Zhao, Zhicheng Dou, and Yujia Zhou. 2024.
+\newblock \href {https://doi.org/10.1145/3627673.3679851} {Generating intent-aware clarifying questions in conversational information retrieval systems}.
+\newblock In \emph{Proceedings of the 33rd ACM International Conference on Information and Knowledge Management}, pages 3384--3394. ACM.
+
+\end{thebibliography}

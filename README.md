@@ -1,11 +1,25 @@
-# Conversational-AI
-Repo for Conversation AI Module 
+The trained model files can be located in the models folder on google drive:
+Google drive link: https://drive.google.com/drive/folders/1C_btnEOr36mlRzslE2X-PlFDlV9ElTpK?usp=drive_link
 
-## Initial roles (Improved - but can still be refined):
-|Name|Role|Responsibilities|Implementation Tasks|
-|:--:|:--:|:--:|:--:|
-|**Jack**|Project Coordinator & System Integrator|	- Oversees project progress, manages documentation, and ensures deadlines are met. - Compiles all sections into a coherent research plan and final presentation. - Ensures all components work together as a functional system.|- Implements system integration & pipeline management, ensuring individual models (NLU, retrieval, ranking, evaluation) communicate properly. - Tests end-to-end system functionality and resolves integration issues.|
-|**Ruben**|NLU & Query Understanding Specialist|- Researches how to determine when a query needs clarification (ambiguity detection). - Investigates Rasa/BERT models for detecting unclear queries. - Determines when to trigger a clarifying question.|- Implements an intent classifier (BERT/Rasa) to detect ambiguous queries. - Trains and tests a model to classify queries as clear or ambiguous. - Provides query classification outputs to the Clarifying Question Specialist.|
-|**Ansh**|Clarifying Question Retrieval/Generation Specialist|- Researches methods for retrieving or generating relevant clarifying questions. - Investigates neural ranking, question retrieval, and NLG models.|- Implements a retrieval-based (BERT/Splade) or generation-based (GPT/BART/T5) model to produce clarifying questions. - Retrieves questions from a predefined dataset or generates new ones based on query context. - Outputs candidate clarifying questions to the Ranking Specialist.|
-|**Andy**|Ranking & Selection Specialist|	- Works on how to ranking clarifying questions to ensure the most relevant one is chosen. - Investigates neural ranking models (Splade/BERT-based ranking).|- Implements a ranking model (Splade/BERT-based ranking) to score and rank clarifying questions. - Ensures that the top-ranked question is chosen for the user. - Outputs the best-ranked clarifying question to the System Integrator for final processing.|
-|**Jordan**|Evaluation, Metrics & Data Specialist|	- Researches system effectiveness and validation methods. - Looks into standard evaluation metrics from Information Retrieval (Precision, MRR, Recall, etc.). - Designs testing methodology. – Collects and prepares the question dataset for retrieval/generation.|- Implements evaluation metrics (Precision, MRR, Recall). - Develops a synthetic evaluation dataset for testing performance. - Runs automated retrieval and ranking evaluations. – Preparation of question dataset for model training/testing.- Builds a simple API, script, or framework to connect components. |
+Quick start up guide:
+
+If you want to **train the models yourself**:
+Step 1: Install the requirements file: "pip install -r requirements"
+Step 2: 
+RASA: cd to this project and then use terminal and type "rasa train"
+BM25: Run bm25.py in the actions folder
+SBERT: Run finetuned_sbert.py in actions folder.
+
+Step 3: in the terminal run: "rasa run actions" Once it says action point is running move on
+Step 4: Open a 2nd terminal and run: "rasa shell"
+Step 5: Ask your query and get a response
+
+If you want to **use our pre trained models**:
+Step 1: Download the files via the google drive link above:
+* Rasa files: `models`  
+* SBERT files: `actions -> output -> fine_tuned_sbert_model`   
+
+Step 2: Install the requirements file: "pip install -r requirements"
+Step 3: in the terminal run: "rasa run actions" Once it says action point is running move on
+Step 4: Open a 2nd terminal and run: "rasa shell"
+Step 5: Ask your query and get a response

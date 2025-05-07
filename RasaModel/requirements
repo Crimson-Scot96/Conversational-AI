@@ -1,7 +1,0 @@
-rasa
-rasa-sdk
-pandas
-numpy
-sentence-transformers
-rank-bm25
-aiohttp
