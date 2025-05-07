@@ -34,7 +34,9 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-Short abstract.
+  This project investigates the development of a conversational search system that asks clarifying questions to resolve ambiguity in user queries. Traditional search systems often struggle with underspecified or ambiguous queries and can lead to irrelevant or broad results. To address this, we designed a modular architecture that integrates information retrieval with a semantic question re-ranking and clarification approach. Queries are first processed through a BM25 retrieval module and evaluated using a confidence threshold. When confidence is low, the system utilises a fine-tuned Sentence-BERT (SBERT) module to rank and select an appropriate clarifying question from a predefined dataset. Dialogue management is performed via Rasa, which handles user interaction, tracks conversation history, and enables control and flow of system modules.
+  
+  Evaluation was conducted using generated queries across matching, non-matching, and ambiguous categories based on our systems dataset contents. The system achieved strong performance on relevant queries (92\% accuracy, 95.56\% F1 score), and demonstrated appropriate caution in uncertain contexts. The SBERT module correctly identified clarifying questions with 84\% confidence on unseen ambiguous queries, indicating good generalisability. Although limited by the scope of the dataset, reliance on predefined questions and project timeframe, the system effectively demonstrated when and how clarification should occur. The results support the view that clarification improves search relevance and show that the system design can provide a solid foundation for future development in conversational search.
 \end{abstract}
 
 
